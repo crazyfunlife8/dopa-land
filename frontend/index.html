@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多巴樂園｜人類圖分析</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <div class="nav-in">
+      <button class="brand" data-go="home" aria-label="多巴樂園 首頁"><img data-img="LOGO" alt="多巴樂園" class="brand-logo"></button>
+      <div class="tabs">
+        <button data-go="home" class="t-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 11h3v9h5v-6h3v6h5v-9h3z"/></svg>首頁</button>
+        <button data-go="verify" class="t-verify"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.6-4-4 1.7-1.7 2.3 2.3 5.7-5.7 1.7 1.7z"/></svg>巴巴驗證</button>
+        <button data-go="blobs" class="t-blobs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4.5 0 8 2.6 8 7.2 0 4.8-3.3 10.8-8 10.8S4 15 4 10.2C4 5.6 7.5 3 12 3zm-3 8a1.4 1.4 0 1 0 0-2.8A1.4 1.4 0 0 0 9 11zm6 0a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8z"/></svg>巴巴們</button>
+        <button data-go="unlock" class="t-unlock"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8.5 12h9v1.8h-9zm0 3.6h9v1.8h-9z"/></svg>深度解析</button>
+        <button data-go="lounge" class="t-lounge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-3.6 17.2L7 22h10l-1.4-2.8A9 9 0 0 0 12 2zm0 2.4 1.9 3.3h-3.8zm-6.6 6.9 3.3-1.9 1.9 3.3-3.3 1.9a6.6 6.6 0 0 1-1.9-3.3zm5.2 5.2 1.9-3.3 1.9 3.3a6.6 6.6 0 0 1-3.8 0zm7.1-1.9-3.3-1.9 1.9-3.3 3.3 1.9a6.6 6.6 0 0 1-1.9 3.3z"/></svg>大廳</button>
+        <button data-go="inbox" class="t-inbox"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zm1.8 1.8 7.2 5.4 7.2-5.4z"/></svg>信箱<span class="cnt" id="navUnread" style="display:none;"></span></button>
+</div>
+      <button class="nav-user" id="navUser" type="button" data-go="auth"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm0 2c-4.4 0-8 2.4-8 5.3V21h16v-1.7c0-2.9-3.6-5.3-8-5.3z"/></svg>登入</button>
+</div>
+</nav>
+
+  <!-- ============ VIEW: 首頁 ============ -->
+  <div class="view" id="view-home">
+    <header class="hero">
+      <svg class="eye e1 float" viewBox="0 0 60 40" aria-hidden="true"><ellipse cx="18" cy="20" rx="15" ry="19" fill="#fff" stroke="#141018" stroke-width="3"/><ellipse cx="44" cy="20" rx="15" ry="19" fill="#fff" stroke="#141018" stroke-width="3"/><circle cx="21" cy="24" r="6" fill="#141018"/><circle cx="47" cy="24" r="6" fill="#141018"/></svg>
+      <svg class="eye e2 float" viewBox="0 0 60 40" aria-hidden="true"><ellipse cx="18" cy="20" rx="15" ry="19" fill="#fff" stroke="#141018" stroke-width="3"/><ellipse cx="44" cy="20" rx="15" ry="19" fill="#fff" stroke="#141018" stroke-width="3"/><circle cx="15" cy="24" r="6" fill="#141018"/><circle cx="41" cy="24" r="6" fill="#141018"/></svg>
+      <div class="container hero-inner">
+        <span class="badge">快樂巴巴們</span>
+        <img data-img="LOGO" alt="多巴樂園" class="hero-logo">
+        <p class="hero-sub">拉巴拉巴，看你命定哪一款巴巴。</p>
+        <div class="hero-art"><img data-img="HERO" alt="多巴樂園裡的泥巴怪們在遊樂園玩"></div>
+        <a class="btn big" data-go="verify" href="#verify">先進場驗證身份 →</a>
+        <p class="hero-note">童叟無欺，這是一台巴巴身份驗證機。</p>
+</div>
+</header>
+    <div class="marquee"><span>多巴樂園驗證身份中 ▶ 顯示者 ▶ 生產者 ▶ 顯示生產者 ▶ 投射者 ▶ 反映者 ▶ 拉一把看你哪一款 ▶ 多巴樂園驗證身份中 ▶ 顯示者 ▶ 生產者 ▶ 顯示生產者 ▶ 投射者 ▶ 反映者 ▶ 拉一把看你哪一款 ▶</span></div>
+
+    <!-- 怎麼玩 三步驟 -->
+    <section class="pad band-cream">
+      <div class="container">
+        <div class="sec-head"><span class="kicker">怎麼玩</span><h2>三步驟，領走你的巴巴</h2></div>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><img class="ico-img" data-img="IC1" alt=""><h3>填生日</h3><p>輸入出生時間和地點</p></div>
+          <div class="step"><div class="n">2</div><img class="ico-img" data-img="IC2" alt=""><h3>拉一把</h3><p>巴巴驗證機幫你驗身份</p></div>
+          <div class="step"><div class="n">3</div><img class="ico-img" data-img="IC3" alt=""><h3>領巴巴</h3><p>拿到你的專屬巴巴</p></div>
+</div>
+</div>
+</section>
+
+    <!-- 被說中 hook -->
+    <section class="pad band-yellow">
+      <div class="container">
+        <div class="sec-head"><span class="kicker">先問你一下</span><h2>你是不是常常——</h2></div>
+        <ul class="hook-list">
+          <li> 明明很努力，卻總覺得一直用錯力氣？</li>
+          <li> 做決定老是猶豫，事後又後悔怪自己？</li>
+          <li> 常被說「你很難搞」，但你自己也不懂哪裡怪？</li>
+</ul>
+        <p class="hook-punch">其實你不難搞——只是還沒搞懂自己的「類型」。</p>
+        <div style="text-align:center;"><a class="btn big" data-go="verify" href="#verify">進場驗證看看 →</a></div>
+</div>
+</section>
+
+    <!-- 五隻巴巴快覽 -->
+    <section class="pad band-cream">
+      <div class="container">
+        <div class="sec-head"><span class="kicker">五款巴巴</span><h2>你會是哪一款？</h2></div>
+        <div class="deck-wrap">
+          <button class="deck-arrow prev" id="deckPrev" type="button" aria-label="上一隻">‹</button>
+          <div class="deck" id="blobDeck">
+            <article class="deck-card m">
+              <span class="pct">約 8%</span>
+              <div class="cap"><img data-img="A" alt="阿衝"></div>
+              <div class="body">
+                <span class="nm">阿衝</span>
+                <span class="ty">顯示者<small>MANIFESTOR</small></span>
+                <p class="st">策略｜<b>告知後行動</b></p>
+                <p class="qt">「先做了再說啦。」</p>
+</div>
+</article>
+            <article class="deck-card g">
+              <span class="pct">約 37%</span>
+              <div class="cap"><img data-img="G" alt="阿亨"></div>
+              <div class="body">
+                <span class="nm">阿亨</span>
+                <span class="ty">生產者<small>GENERATOR</small></span>
+                <p class="st">策略｜<b>等待回應</b></p>
+                <p class="qt">「嗯哼～（有反應）」</p>
+</div>
+</article>
+            <article class="deck-card mg">
+              <span class="pct">約 33%</span>
+              <div class="cap"><img data-img="MG" alt="生生"></div>
+              <div class="body">
+                <span class="nm">生生</span>
+                <span class="ty">顯示生產者<small>MANIFESTING GENERATOR</small></span>
+                <p class="st">策略｜<b>回應後告知</b></p>
+                <p class="qt">「我先衝了喔——啊對，忘了講。」</p>
+</div>
+</article>
+            <article class="deck-card p">
+              <span class="pct">約 20%</span>
+              <div class="cap"><img data-img="P" alt="小么"></div>
+              <div class="body">
+                <span class="nm">小么</span>
+                <span class="ty">投射者<small>PROJECTOR</small></span>
+                <p class="st">策略｜<b>等待邀請</b></p>
+                <p class="qt">「你可以邀請我啊。」</p>
+</div>
+</article>
+            <article class="deck-card r">
+              <span class="pct">約 1%</span>
+              <div class="cap"><img data-img="R" alt="月月"></div>
+              <div class="body">
+                <span class="nm">月月</span>
+                <span class="ty">反映者<small>REFLECTOR</small></span>
+                <p class="st">策略｜<b>等一個月循環</b></p>
+                <p class="qt">「今天的我，跟昨天不一樣。」</p>
+</div>
+</article>
+</div>
+          <button class="deck-arrow next" id="deckNext" type="button" aria-label="下一隻">›</button>
+          <div class="deck-dots" id="deckDots"></div>
+          <p class="deck-hint">← 滑動看看五隻巴巴 →</p>
+</div>
+        <div style="text-align:center;margin-top:22px;"><a class="btn pink" data-go="blobs" href="#blobs">看五隻詳細介紹 →</a></div>
+</div>
+</section>
+
+    <!-- 深度解析預告 -->
+    <section class="pad band-cream" style="padding-top:0;">
+      <div class="container">
+        <div class="sec-head"><span class="kicker">深度解析</span><h2>想看更深的你？</h2><p>類型只是開場。精算版連你為什麼老做錯決定都寫給你看。</p></div>
+        <div style="text-align:center;"><a class="btn green big" data-go="unlock" href="#unlock">看深度解析長怎樣 →</a></div>
+</div>
+</section>
+
+    <!-- 大廳預告（算完之後呢）-->
+    <section class="pad band-pink">
+      <div class="container">
+        <div class="sec-head">
+          <span class="kicker">算完之後呢</span>
+          <h2>多巴樂園大廳</h2>
+          <p>知道自己是哪一隻之後，來認識別種能量的巴巴——不看臉、不問性別，只看你們的能量怎麼互動。</p>
+</div>
+        <div class="zone-mini">
+          <div class="zm"><span class="e"><svg class="zm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 8h18zM5 9.5h2V18H5zm12 0h2V18h-2zm-6 0h2V18h-2zM3 19h18v3H3z"/></svg></span><b>樹洞紙條牆</b><span class="d">匿名丟一張真心話上牆</span></div>
+          <div class="zm"><span class="e"><svg class="zm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-3.6 17.2L7 22h10l-1.4-2.8A9 9 0 0 0 12 2zm0 2.4 1.9 3.3h-3.8zm-6.6 6.9 3.3-1.9 1.9 3.3-3.3 1.9a6.6 6.6 0 0 1-1.9-3.3zm5.2 5.2 1.9-3.3 1.9 3.3a6.6 6.6 0 0 1-3.8 0zm7.1-1.9-3.3-1.9 1.9-3.3 3.3 1.9a6.6 6.6 0 0 1-1.9 3.3z"/></svg></span><b>配配摩天輪</b><span class="d">每天為你轉出 10 位巴巴</span></div>
+          <div class="zm"><span class="e"><svg class="zm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19c0-8.3 5.7-14.5 12.5-14.5V7.5C10.4 7.5 6 12.3 6 19zm2-1h14v3H5z"/></svg></span><b>抽抽樂飛車</b><span class="d">每天一抽，命運隨機配一位</span></div>
+          <div class="zm"><span class="e"><svg class="zm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h13v8a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zm14 1.5h1.6a2.4 2.4 0 0 1 0 4.8H18zM3 19h15v2.5H3z"/></svg></span><b>解憂咖啡杯</b><span class="d">真人老師一對一語音解讀</span></div>
+</div>
+        <div style="text-align:center;margin-top:24px;">
+          <a class="btn big" data-go="lounge" href="#lounge">進大廳看看 →</a>
+          <p class="lounge-gate-note">大廳需要登入——因為要幫你記住你是哪一隻巴巴、還有誰在跟你聊天。<br>免費驗證和知識內容不用登入，隨便看。</p>
+</div>
+</div>
+</section>
+
+    <!-- FAQ -->
+    <section class="pad band-yellow">
+      <div class="container">
+        <div class="sec-head"><span class="kicker">常見問題</span><h2>三個先講清楚</h2></div>
+        <div class="faq">
+          <details><summary>人類圖是什麼？</summary><p>它把星盤、易經、脈輪等系統綜合起來，畫成一張圖，描述你天生的能量怎麼運作、怎麼做決定最順。</p></details>
+          <details><summary>為什麼一定要準確的出生時間？</summary><p>差一小時，類型和很多設定都可能不一樣。時間越準，算出來越是你本人。</p></details>
+          <details><summary>AI 真的算得準嗎？</summary><p>類型、策略這種是純計算，機器算得出來、也不會累。更深的個人化解讀，才是需要人味加值的部分。</p></details>
+</div>
+</div>
+</section>
+
+</div>
+
+  <!-- ============ VIEW: 巴巴驗證 ============ -->
+  <div class="view" id="view-verify">
+    <section class="pad band-yellow">
+      <div class="container">
+        <div class="sec-head">
+          <span class="kicker">巴巴驗證</span>
+          <h2>請先驗證身份</h2>
+          <p>時間越準算越準——差一小時可能就變一型，別亂填喔。</p>
+</div>
+
+        <div class="machine" id="machine">
+          <div class="machine-top">巴巴驗證機
+            <span class="lights"><i></i><i></i><i></i></span>
+</div>
+          <div class="machine-body">
+            <form id="hdForm" novalidate>
+              <div class="field">
+                <label for="fName">你的名字 <span class="opt-tag">選填</span></label>
+                <input type="text" id="fName" placeholder="想怎麼稱呼你？">
+</div>
+              <div class="field">
+                <label for="fDate">出生日期 <span class="req">必填</span></label>
+                <input type="date" id="fDate" required>
+</div>
+              <div class="field">
+                <label for="fTime">出生時間 <span class="req">必填</span></label>
+                <input type="time" id="fTime" required>
+                <p class="hint"> 差一小時，類型就可能不同。問長輩或查出生證明最準。</p>
+</div>
+              <div class="field">
+                <label for="fPlace">出生地 <span class="req">必填</span></label>
+                <select id="fPlace" required>
+                  <option value="">請選擇出生地…</option>
+                  <option value="8">台灣</option>
+                  <option value="8">香港</option>
+                  <option value="8">澳門</option>
+                  <option value="8">中國大陸</option>
+                  <option value="8">新加坡</option>
+                  <option value="8">馬來西亞</option>
+                  <option value="9">日本</option>
+                  <option value="9">韓國</option>
+                  <option value="7">泰國</option>
+                  <option value="7">越南</option>
+                  <option value="5.5">印度</option>
+                  <option value="1">中歐（德/法/義…）</option>
+                  <option value="0">英國</option>
+                  <option value="-5">美國東部</option>
+                  <option value="-8">美國西部</option>
+                  <option value="10">澳洲東部</option>
+                  <option value="__other">其他（之後精算再補）</option>
+</select>
+                <p class="hint">先選國家／地區抓時區就好，精算版會再問更精確的出生地。</p>
+</div>
+              <p class="err" id="formErr"></p>
+              <button type="submit" class="btn pink big" style="width:100%;">拉一把・開始驗證</button>
+</form>
+</div>
+</div>
+
+        <!-- SLOT SPIN -->
+        <div id="spin">
+          <div class="slot">
+            <div class="reel"><img alt=""></div>
+            <div class="reel"><img alt=""></div>
+            <div class="reel"><img alt=""></div>
+            <div class="reel"><img alt=""></div>
+</div>
+          <p class="spin-text">驗證轉動中……</p>
+</div>
+
+        <!-- RESULT -->
+        <div id="result">
+          <div class="result-card" id="resCard">
+            <div class="rc-top">
+              <p class="result-kicker" id="resKicker">你的結果正在路上——</p>
+              <div class="mon" id="resMon"><img data-img="G" alt=""></div>
+</div>
+            <div class="rc-body">
+              <h3 class="result-name" id="resName">機器還在通電中</h3>
+              <p class="rc-en" id="resEn"></p>
+              <p class="rc-intro">人類圖是你的「能量使用說明書」。先認識你的<b>類型</b>（怎麼運作）和<b>策略</b>（怎麼啟動）</p>
+
+              <div class="rc-item type">
+                <span class="lab">你的類型</span>
+                <p class="gloss">是什麼｜你的能量整體怎麼運作（全世界就 5 種）</p>
+                <strong class="nm" id="resTypeNm">—</strong>
+                <p class="ds" id="resTypeDs"></p>
+                <p class="howto" id="resTypeHow"></p>
+</div>
+
+              <div class="rc-item strat">
+                <span class="lab">你的策略</span>
+                <p class="gloss">是什麼｜你該怎麼「啟動、行動」，阻力最小</p>
+                <strong class="nm" id="resStratNm">—</strong>
+                <p class="ds" id="resStratDs"></p>
+                <p class="howto" id="resStratHow"></p>
+</div>
+
+              <div class="rc-teaser"> 你的 <b>內在權威</b> ＋ <b>定義</b> 也算好了</div>
+              <a class="btn green" data-go="unlock" href="#unlock" style="width:100%;">解鎖完整分析 →</a>
+              <a class="btn" data-go="lounge" href="#lounge" style="width:100%;margin-top:10px;font-size:1rem;"> 進大廳認識別種巴巴</a>
+              <p class="hint" id="resNote" style="margin-top:12px;font-size:.72rem;opacity:.7;">＊快速版依所在地區時區估算；在美／歐／澳等有夏令時的地區出生，時間可能差一小時＝可能差一型，精算版會再確認。</p>
+              <div style="margin-top:8px;"><button class="restart" id="restart" type="button">↺ 重新驗證</button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 五隻巴巴 ============ -->
+  <div class="view" id="view-blobs">
+    <div class="marquee pink rev"><span> 五隻巴巴登場 阿衝 ・ 阿亨 ・ 生生 ・ 小么 ・ 月月 ・ 每種巴巴都有不一樣的生活方式 五隻巴巴登場 阿衝 ・ 阿亨 ・ 生生 ・ 小么 ・ 月月 ・ 每種巴巴都有不一樣的生活方式</span></div>
+    <section class="pad band-cream">
+      <div class="container">
+        <div class="sec-head">
+          <span class="kicker">巴巴們</span>
+          <h2>五隻巴巴，五種活法</h2>
+          <p>你不難搞，只是跟別人不同款。算完會配一隻給你。</p>
+</div>
+        <div class="grid4">
+          <article class="prod m">
+            <span class="tag-pct">約 8%</span>
+            <div class="cap"><img data-img="A" alt="阿衝"></div>
+            <div class="meta">
+              <p class="no en">NO.01</p>
+              <h3 class="name">阿衝</h3>
+              <span class="type">顯示者<small>MANIFESTOR</small></span>
+              <dl class="row"><dt>策略</dt><dd>告知後行動</dd></dl>
+              <p class="quote">「先做了再說啦。」</p>
+</div>
+</article>
+          <article class="prod g">
+            <span class="tag-pct">約 37%</span>
+            <div class="cap"><img data-img="G" alt="阿亨"></div>
+            <div class="meta">
+              <p class="no en">NO.02</p>
+              <h3 class="name">阿亨</h3>
+              <span class="type">生產者<small>GENERATOR</small></span>
+              <dl class="row"><dt>策略</dt><dd>等待回應</dd></dl>
+              <p class="quote">「嗯哼～（有反應）」</p>
+</div>
+</article>
+          <article class="prod mg">
+            <span class="tag-pct">約 33%</span>
+            <div class="cap"><img data-img="MG" alt="生生"></div>
+            <div class="meta">
+              <p class="no en">NO.03</p>
+              <h3 class="name">生生</h3>
+              <span class="type">顯示生產者<small>MANIFESTING GENERATOR</small></span>
+              <dl class="row"><dt>策略</dt><dd>回應後告知</dd></dl>
+              <p class="quote">「我先衝了喔——啊對，忘了講。」</p>
+</div>
+</article>
+          <article class="prod p">
+            <span class="tag-pct">約 20%</span>
+            <div class="cap"><img data-img="P" alt="小么"></div>
+            <div class="meta">
+              <p class="no en">NO.04</p>
+              <h3 class="name">小么</h3>
+              <span class="type">投射者<small>PROJECTOR</small></span>
+              <dl class="row"><dt>策略</dt><dd>等待邀請</dd></dl>
+              <p class="quote">「你可以邀請我啊。」</p>
+</div>
+</article>
+          <article class="prod r">
+            <span class="tag-pct">約 1%</span>
+            <div class="cap"><img data-img="R" alt="月月"></div>
+            <div class="meta">
+              <p class="no en">NO.05</p>
+              <h3 class="name">月月</h3>
+              <span class="type">反映者<small>REFLECTOR</small></span>
+              <dl class="row"><dt>策略</dt><dd>等月循環（約28天）</dd></dl>
+              <p class="quote">「等月亮繞一圈。」</p>
+</div>
+</article>
+</div>
+        <p class="disclaimer" style="color:var(--ink);opacity:.7;">＊比例用「約」是因為統計會浮動。「策略」是你怎麼<b>啟動</b>，跟「內在權威」（你怎麼<b>做決定</b>）是兩件事，正式解讀會分開講。</p>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 深度解析 ============ -->
+  <div class="view" id="view-unlock">
+    <section class="pad band-pink">
+      <div class="container">
+        <div class="sec-head">
+          <span class="kicker">深度解析</span>
+          <h2>想看你的巴巴完整說明書？</h2>
+          <p>巴巴驗證機只抓大方向。精算版才是你本人——連你為什麼老做錯決定都寫給你看。</p>
+</div>
+
+        <div class="report" id="repCard">
+          <div class="rep-head"><span class="tag" style="background:var(--gen);color:var(--ink);border:2px solid #000;border-radius:8px;padding:3px 9px;font-size:.68rem;">你的圖</span><div>你的完整巴巴說明書<small id="repSub">先去驗證，這裡會長出你的完整解讀</small></div></div>
+
+          <p class="rep-intro">這是你的人類圖——不是算命，是你<b>天生怎麼運作</b>的說明書。四格分開看：<b>類型</b>（怎麼運作）、<b>策略</b>（怎麼啟動）、<b>內在權威</b>（怎麼做決定）、<b>定義</b>（能量多完整）。挑有感的先用，不用全背。</p>
+
+          <dl class="rep" id="repFree"></dl>
+          <dl class="rep" id="repLocked"></dl>
+
+          <details class="glossary">
+            <summary>看不懂術語？點開小辭典</summary>
+            <div class="gbody">
+              <p class="gt">能量中心（9 個）</p>
+              <p class="gd">像 9 顆電池。有顏色＝穩定發電、是你可靠的特質；空白＝接收並放大別人的能量。</p>
+              <p class="gt">定義・幾分人</p>
+              <p class="gd">你「有顏色」的中心被通道連成幾塊：一整塊＝一分人、切兩塊＝二分人…塊越多越需要別人補缺口。（跟單一中心「有沒有顏色」是不同層次的兩件事。）</p>
+              <p class="gt">Profile・人生角色（如 1/3）</p>
+              <p class="gd">兩個數字＝你跟世界互動的人設。前面是你自己知道的你，後面是別人感受到的你。</p>
+</div>
+</details>
+
+          <div class="rep-foot">
+            <div class="foot-locked">
+              <div class="price">
+                <div class="p best"><small>巴巴驗證機智能分析</small><b>$99</b><small>解鎖內在權威・定義・Profile 完整解讀</small></div>
+</div>
+              <button class="btn green big" id="unlockBtn" type="button" style="width:100%;max-width:340px;">解鎖完整分析 →</button>
+              <p class="foot-note">＊驗證後按解鎖即可看完整解讀；還沒驗證會先帶你去驗證（正式版這裡接金流）。</p>
+</div>
+            <div class="foot-unlocked">
+              <p class="foot-q">解鎖完成！先把結果存成一張圖卡，貼限動吧</p>
+              <button class="btn green big" id="dlCardBtn" type="button" style="width:100%;max-width:340px;"> 限動版圖卡（9:16）</button>
+              <button class="btn big" id="dlCardBtnSq" type="button" style="width:100%;max-width:340px;margin-top:12px;"> 貼文版圖卡（1:1）</button>
+              <div id="cardOut" style="display:none;margin-top:18px;">
+                <p class="foot-note" id="cardOutNote" style="font-weight:800;"></p>
+                <img id="cardOutImg" alt="你的巴巴圖卡" style="width:100%;max-width:300px;border:var(--bd);border-radius:16px;box-shadow:var(--sh-sm);margin:8px auto 0;display:block;">
+</div>
+              <p class="foot-q" style="margin-top:22px;">想更深入「對症」——感情、工作、卡關那一題？</p>
+              <a href="#teacup" class="btn" data-go="teacup">找真人老師・語音解讀 →</a>
+              <p class="foot-note">＊真人老師是另一層加值，老師定價、語音錄音交付。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 多巴樂園大廳 ============ -->
+  <div class="view" id="view-lounge">
+    <div class="marquee blue"><span> 多巴樂園大廳 ・ 匿名交流 ・ 依類型配對 ・ 不看臉不問性別 ・ 慢慢來不急 多巴樂園大廳 ・ 匿名交流 ・ 依類型配對 ・ 不看臉不問性別 ・ 慢慢來不急</span></div>
+    <section class="pad band-cream">
+      <div class="container">
+        <div class="sec-head">
+          <span class="kicker">多巴樂園大廳</span>
+          <h2>算完你的巴巴，來大廳玩</h2>
+          <p>跟其他型的巴巴匿名交流。不看臉、不問性別，只看能量跟想法——被理解，從這裡開始。</p>
+</div>
+        <!-- 大廳島嶼地圖：單張底圖（無圓角裁切＝沙盒不凍）＋泥巴寶小圖疊層（hover 才跳出）＋4 個可點熱區 -->
+        <div class="map">
+          <img class="layer base" data-img="LNG0" alt="多巴樂園地圖">
+          <!-- 動畫惰性掛載：src 由 JS 在「進大廳」時才從 IMG map 塞入、離開時卸除——否則 4 支動畫 WebP 常駐 DOM 會把沙盒 renderer 拖到週期性卡死（連首頁都卡） -->
+          <!-- 定位＝像素實測：圓台中心(遮罩質心) × APNG 內容框(全幀 union)，內容水平置中於圓台、底部踩進圓台 -->
+          <img class="ride-anim" data-anim="ANC" alt="旋轉木馬" style="left:18%;top:2%;width:19%">
+          <img class="ride-anim" data-anim="ANF" alt="摩天輪" style="left:63.1%;top:0.6%;width:19%">
+          <img class="ride-anim" data-anim="ANR" alt="雲霄飛車" style="left:17.9%;top:41.1%;width:21.8%">
+          <img class="ride-anim" data-anim="ANT" alt="旋轉咖啡杯" style="left:63.4%;top:47.3%;width:15.7%">
+          <button class="hot hot-carousel" data-go="tree" data-ride="carousel" type="button" aria-label="紙條牆木馬"><span class="ride-desc">匿名丟一張紙條上牆，也讀讀別的巴巴的真心話</span><span class="ride-tag"><svg class="tag-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 8h18zM5 9.5h2V18H5zm12 0h2V18h-2zm-6 0h2V18h-2zM3 19h18v3H3z"/></svg>紙條牆木馬<span class="st open">開放</span></span></button>
+          <button class="hot hot-ferris" data-go="ferris" data-ride="ferris" type="button" aria-label="配配摩天輪"><span class="ride-desc">選你的型，每天為你轉出 10 位適合認識的巴巴</span><span class="ride-tag"><svg class="tag-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-3.6 17.2L7 22h10l-1.4-2.8A9 9 0 0 0 12 2zm0 2.4 1.9 3.3h-3.8zm-6.6 6.9 3.3-1.9 1.9 3.3-3.3 1.9a6.6 6.6 0 0 1-1.9-3.3zm5.2 5.2 1.9-3.3 1.9 3.3a6.6 6.6 0 0 1-3.8 0zm7.1-1.9-3.3-1.9 1.9-3.3 3.3 1.9a6.6 6.6 0 0 1-1.9 3.3z"/></svg>配配摩天輪<span class="st open">開放</span></span></button>
+          <button class="hot hot-coaster" data-go="coaster" data-ride="coaster" type="button" aria-label="抽抽樂飛車"><span class="ride-desc">每天一抽，命運隨機配你一位巴巴的真心話</span><span class="ride-tag"><svg class="tag-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19c0-8.3 5.7-14.5 12.5-14.5V7.5C10.4 7.5 6 12.3 6 19zm2-1h14v3H5z"/></svg>抽抽樂飛車<span class="st open">開放</span></span></button>
+          <button class="hot hot-teacup" data-go="teacup" data-ride="teacup" type="button" aria-label="解憂咖啡杯"><span class="ride-desc">想更深？真人老師一對一語音，幫你解人生卡點</span><span class="ride-tag"><svg class="tag-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h13v8a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zm14 1.5h1.6a2.4 2.4 0 0 1 0 4.8H18zM3 19h15v2.5H3z"/></svg>解憂咖啡杯<span class="st open">開放</span></span></button>
+</div>
+        <p class="disclaimer" style="color:var(--ink);opacity:.7;">＊互動區 18+。這裡是「樹洞＋學表達」不是約會；隱藏性別是為了把焦點從外貌拉回能量與想法。</p>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 樹洞紙條牆 ============ -->
+  <div class="view" id="view-tree">
+    <div class="marquee blue"><span> 紙條牆木馬 ・ 匿名丟一張 ・ 先審後顯 ・ 不看臉不問性別 ・ 只有能量跟真心話 紙條牆木馬 ・ 匿名丟一張 ・ 先審後顯 ・ 不看臉不問性別 ・ 只有能量跟真心話</span></div>
+    <section class="pad band-cream">
+      <div class="container tree-wrap">
+        <button class="btn" data-go="lounge" type="button" style="margin-bottom:20px;">← 回大廳</button>
+        <div class="tree-card">
+          <h3> 丟一張紙條</h3>
+          <p class="hint">匿名、非即時。只說能量和感受就好，別寫真名／性別／聯絡方式（會被退件）。</p>
+          <div class="type-pick" id="treeType">
+            <button class="m" data-t="m" type="button"><i class="tp-dot m"></i>顯示者</button>
+            <button class="g" data-t="g" type="button"><i class="tp-dot g"></i>生產者</button>
+            <button class="mg" data-t="mg" type="button"><i class="tp-dot mg"></i>顯生</button>
+            <button class="p" data-t="p" type="button"><i class="tp-dot p"></i>投射者</button>
+            <button class="r" data-t="r" type="button"><i class="tp-dot r"></i>反映者</button>
+</div>
+          <div class="tree-field">
+            <label>最近有感 or 卡住的一件事，還有你希望被怎麼理解？</label>
+            <textarea id="treeText" rows="4" maxlength="120" placeholder="例：明明累到不行還是停不下來，後來發現我只是不敢停……"></textarea>
+            <div class="tree-count" id="treeCount">0 / 100</div>
+</div>
+          <button class="btn green big" id="treeSubmit" type="button" style="width:100%;">丟進樹洞</button>
+          <div class="tree-msg" id="treeMsg" style="display:none;"></div>
+</div>
+        <div class="sec-head" style="margin-bottom:18px;"><span class="kicker">別人的紙條</span><h2 style="font-size:1.6rem;">牆上的真心話</h2></div>
+        <div class="note-wall" id="noteWall">
+          <div class="note" data-nid="s1" data-likes="42"><span class="ntype g">某隻生產者</span><p>明明累到不行還是停不下來，後來發現是我根本沒喜歡那件事，只是不敢停。</p><div class="nfoot"><span class="nt">3 小時前</span></div></div>
+          <div class="note" data-nid="s2" data-likes="67"><span class="ntype p">某隻投射者</span><p>等被邀請真的好難。硬衝上去給建議、被回一句「誰問你了」之後，我終於懂了。</p><div class="nfoot"><span class="nt">5 小時前</span></div></div>
+          <div class="note" data-nid="s3" data-likes="28"><span class="ntype m">某隻顯示者</span><p>學會動之前先講一聲，世界突然沒那麼多阻力。早該這樣了。</p><div class="nfoot"><span class="nt">昨天</span></div></div>
+          <div class="note" data-nid="s4" data-likes="51"><span class="ntype r">某隻反映者</span><p>這個月的我跟上個月像兩個人。以前覺得自己善變，現在覺得這是我的超能力。</p><div class="nfoot"><span class="nt">昨天</span></div></div>
+          <div class="note" data-nid="s5" data-likes="35"><span class="ntype mg">某隻顯生</span><p>同時開五個檔案被說沒定性，可是我就是這樣才快啊。放過自己之後輕鬆超多。</p><div class="nfoot"><span class="nt">2 天前</span></div></div>
+          <div class="note" data-nid="s6" data-likes="19"><span class="ntype g">某隻生產者</span><p>學會問自己肚子「要不要」，比問腦袋準太多了。身體不會騙人。</p><div class="nfoot"><span class="nt">2 天前</span></div></div>
+</div>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 雲霄飛車 上車就配 ============ -->
+  <div class="view" id="view-coaster">
+    <div class="marquee pink"><span> 上車就配 ・ 每天系統送你一位 ・ 不看臉不問性別 ・ 只憑能量 ・ 明天再來抽新的 上車就配 ・ 一天一位緣分 ・ 閉眼上車 ・ 先審後顯 ・ 慢慢來不急</span></div>
+    <section class="pad band-cream">
+      <div class="container coaster-wrap">
+        <button class="btn" data-go="lounge" type="button" style="margin-bottom:20px;">← 回大廳</button>
+        <div class="sec-head" style="margin-bottom:20px;">
+          <span class="kicker">抽抽樂飛車</span>
+          <h2>閉眼上車，系統丟你一位</h2>
+          <p>不用挑、不用滑。<strong>每天系統送你一位</strong>巴巴的真心話——今天這位就是今天的緣分，明天再回來抽新的。不看臉、不問性別。</p>
+</div>
+        <div class="draw-stage">
+          <div class="draw-card" id="drawCard">
+            <div class="dc-face dc-back" id="dcBack">
+              <div class="dc-q"><svg class="draw-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19c0-8.3 5.7-14.5 12.5-14.5V7.5C10.4 7.5 6 12.3 6 19zm2-1h14v3H5z"/></svg></div>
+              <div class="dc-hint">每天送你一位・按「上車」抽今天的緣分</div>
+</div>
+            <div class="dc-face dc-front" id="dcFront" style="display:none;">
+              <span class="ntype" id="dcType"></span>
+              <div class="dc-alias" id="dcAlias"></div>
+              <p class="dc-intro" id="dcIntro"></p>
+              <div class="dc-tags" id="dcTags"></div>
+              <div class="dc-act">
+                <button class="btn green" id="dcReply" type="button">想回應這位</button>
+</div>
+</div>
+</div>
+          <button class="btn pink big" id="drawBtn" type="button" style="width:100%;max-width:360px;">上車 抽今天這位</button>
+          <div class="draw-msg" id="drawMsg" style="display:none;"></div>
+</div>
+        <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:20px;">＊互動區 18+。抽到的是別人匿名分享的能量，不是外貌配對。想回應＝送出邀請，<strong>對方也說好才會開對話</strong>；聊天內容平台不看。</p>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 摩天輪 依結果瀏覽配對 ============ -->
+  <div class="view" id="view-ferris">
+    <div class="marquee"><span> 每天為你轉 10 位 ・ 依你的類型 ・ 自己慢慢挑 ・ 不看臉不問性別 ・ 明天換新的 每天為你轉 10 位 ・ 一次看 5 個 ・ 再轉看下一批 ・ 只看能量</span></div>
+    <section class="pad band-cream">
+      <div class="container ferris-wrap">
+        <button class="btn" data-go="lounge" type="button" style="margin-bottom:20px;">← 回大廳</button>
+        <div class="sec-head" style="margin-bottom:16px;">
+          <span class="kicker">配配摩天輪</span>
+          <h2>今天為你轉出這些巴巴</h2>
+          <p>跟雲霄「系統丟一個」不一樣——這裡你<strong>自己慢慢逛、自己挑</strong>。選你的型，我每天為你轉 <strong>10 位</strong>，一次看 5 個、再轉看下一批，明天換新的。</p>
+</div>
+        <div class="batch-bar"><span class="batch-dot"></span>今天為你準備 <strong>10 位</strong> ・ 一次看 5 個、再轉看下一批　<span class="batch-hint">看完明天換新的一批</span></div>
+        <div class="ferris-pick-wrap" id="ferrisPickWrap">
+          <p class="fp-label">先選你是哪隻巴巴，看這週適合你認識的：</p>
+          <div class="type-pick" id="ferrisType">
+            <button class="m" data-t="m" type="button"><i class="tp-dot m"></i>顯示者</button>
+            <button class="g" data-t="g" type="button"><i class="tp-dot g"></i>生產者</button>
+            <button class="mg" data-t="mg" type="button"><i class="tp-dot mg"></i>顯生</button>
+            <button class="p" data-t="p" type="button"><i class="tp-dot p"></i>投射者</button>
+            <button class="r" data-t="r" type="button"><i class="tp-dot r"></i>反映者</button>
+</div>
+</div>
+        <div id="ferrisResult" style="display:none;">
+          <div class="sec-head" style="margin:8px 0 16px;"><span class="kicker" id="ferrisMineKicker"></span><h2 style="font-size:1.5rem;" id="ferrisWallTitle">這週的巴巴們</h2></div>
+          <div class="pair-wall" id="pairWall"></div>
+          <div class="ferris-more"><button class="btn pink" id="ferrisMore" type="button">再轉一批</button></div>
+          <div class="ferris-foot">想知道你們<strong>真正合不合</strong>？類型只是氣場入門，真正的合盤要看<strong>通道電磁橋接</strong>——<a class="btn green" data-go="teacup" href="#teacup" style="margin-top:12px;">找真人老師深入解讀 →</a></div>
+</div>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 旋轉咖啡杯 真人老師市集 ============ -->
+  <div class="view" id="view-teacup">
+    <div class="marquee blue"><span> 真人老師市集 ・ AI 看完想更深？找老師一對一 ・ 錄音交付 ・ 慢慢聽 真人老師市集 ・ 對症下藥 ・ 老師定價 ・ 命理把關</span></div>
+    <section class="pad band-cream">
+      <div class="container teacup-wrap">
+        <!-- 咖啡杯已移出登入閘門（付費升級路徑不該被登入牆擋），所以返回鈕不能寫死回大廳——
+             從深度解析進來的人沒登入，按了會被丟去登入頁。改用 data-back 回上一頁。 -->
+        <button class="btn" data-back type="button" style="margin-bottom:20px;">← 回上一頁</button>
+        <div class="sec-head" style="margin-bottom:18px;">
+          <span class="kicker">解憂咖啡杯</span>
+          <h2>AI 看完，想更深？找真人老師</h2>
+          <p>巴巴驗證機的 AI 幫你看類型、策略，是「快而廣」的入口；想針對你的人生具體問題、對症下藥——這裡的真人老師給你「深而準」的一對一解讀。</p>
+</div>
+        <div class="sec-head" style="margin:6px 0 16px;"><span class="kicker">本月老師</span><h2 style="font-size:1.5rem;">挑一位老師，聽你的專屬解讀</h2></div>
+        <div class="teacher-list" id="teacherList"></div>
+        <div class="recruit">你也是人類圖／占星老師？<strong>加入多巴樂園</strong>，把你的解讀賣給真的需要的人（我們幫你媒合＋收款）。<button class="btn" id="teacherJoin" type="button" style="margin-top:12px;">我想當老師</button></div>
+        <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:18px;">＊<strong>介面示範版</strong>：上面四位是示範老師、預約流程可以整套走一遍（選方案→填問題→結帳→看訂單→聽錄音），但不會真的送出、也不會真的扣款。老師市集正在招募與審核中（命理正確性把關＝品牌信譽），上線後採老師定價、錄音交付、平台媒合收款。</p>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 老師個人頁 ============ -->
+  <div class="view" id="view-teacher">
+    <section class="pad band-cream">
+      <div class="container tpro-wrap">
+        <button class="btn" data-go="teacup" type="button" style="margin-bottom:20px;">← 回老師市集</button>
+        <div id="tproBody"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: 預約表單 ============ -->
+  <div class="view" id="view-booking">
+    <div class="marquee pink"><span> 老師錄音交付 ・ 寫得越具體錄回來越對症 ・ 收款後老師才開始做 老師錄音交付 ・ 一對一 ・ 慢慢聽</span></div>
+    <section class="pad band-cream">
+      <div class="container co-wrap">
+        <button class="btn" data-back type="button" style="margin-bottom:20px;">← 回上一頁</button>
+        <div class="sec-head" style="margin-bottom:20px;">
+          <span class="kicker">預約解讀</span>
+          <h2 id="bkTitle">預約解讀</h2>
+          <p>老師會依你寫的問題，錄一段專屬你的解讀。<strong>寫得越具體，錄回來的越對症。</strong></p>
+        </div>
+
+        <div class="co-card">
+          <h3>1. 選一個方案</h3>
+          <div id="bkPlans"></div>
+        </div>
+
+        <div class="co-card">
+          <h3>2. 你想問什麼？</h3>
+          <div class="field" style="margin-bottom:0;">
+            <label for="bkQ">你最想解的那一題 <span class="req">必填</span></label>
+            <textarea id="bkQ" rows="5" maxlength="500" placeholder="例：換工作換了三次都做不久，每次都是一開始很衝、三個月後就整個垮掉。想知道是我的問題還是我一直挑錯環境。"></textarea>
+            <div class="tree-count" id="bkQCount">0 / 500</div>
+            <p class="hint">寫具體的處境和你卡住的點，比問「我今年運勢如何」有用太多。<strong>別寫真名、電話、IG</strong>——老師只需要知道你的處境。</p>
+          </div>
+        </div>
+
+        <div class="co-card">
+          <h3>3. 你的出生資料</h3>
+          <div id="bkBirth"></div>
+        </div>
+
+        <div class="co-card">
+          <h3>4. 交付方式與時間</h3>
+          <div class="acct-row"><div><div class="k">交付形式</div><div class="v">老師錄音（可線上聽、可下載）</div></div></div>
+          <div class="acct-row"><div><div class="k">預計交付</div><div class="v" id="bkSla">老師接單後 5 個工作天內</div></div></div>
+          <div class="acct-row"><div><div class="k">錄音保存</div><div class="v">交付後保存 90 天，記得先下載留存</div></div></div>
+          <p class="co-err" id="bkErr"></p>
+          <button class="btn green big" id="bkGo" type="button" style="width:100%;margin-top:16px;">去結帳 →</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: 結帳 ============ -->
+  <div class="view" id="view-checkout">
+    <section class="pad band-cream">
+      <div class="container co-wrap">
+        <button class="btn" data-back type="button" style="margin-bottom:20px;">← 回上一頁</button>
+        <div class="sec-head" style="margin-bottom:20px;">
+          <span class="kicker">結帳</span>
+          <h2>確認一下你的訂單</h2>
+          <p>數位商品收款後才交付——付款完成馬上就看得到／老師就會開始做。</p>
+        </div>
+
+        <div class="co-card">
+          <h3>訂單內容</h3>
+          <div id="coItems"></div>
+          <div class="co-total"><b>應付金額</b><span class="big" id="coTotal">NT$0</span></div>
+        </div>
+
+        <div class="co-card">
+          <h3>付款方式</h3>
+          <div class="pay-opts" id="payOpts">
+            <label class="pay-opt on"><input type="radio" name="paym" value="card" checked>
+              <span><span class="po-b">信用卡 / 金融卡</span><span class="po-d">立即完成，付款後馬上交付。</span></span></label>
+            <label class="pay-opt"><input type="radio" name="paym" value="atm">
+              <span><span class="po-b">ATM 虛擬帳號</span><span class="po-d">取得一組專屬帳號後轉帳。入帳確認後才交付，銀行作業時間可能較久。</span></span></label>
+            <label class="pay-opt"><input type="radio" name="paym" value="cvs">
+              <span><span class="po-b">超商代碼繳費</span><span class="po-d">拿繳費代碼到四大超商付款。入帳確認後才交付。</span></span></label>
+          </div>
+          <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:14px;">＊ATM 與超商屬<strong>非即時付款</strong>：完成繳費、系統確認入帳後才會交付內容。</p>
+        </div>
+
+        <div class="co-card">
+          <h3>購買前請確認</h3>
+          <!-- 這個勾選是「概不退款」的法律前提（總待辦 A3）：
+               數位內容要不適用七日鑑賞期，前提是購買前已告知且消費者同意。沒有它，退款條款寫再嚴都可能被打掉。 -->
+          <div class="co-consent" id="coConsent">
+            <input type="checkbox" id="coAgree">
+            <div>
+              <label for="coAgree">我瞭解本商品為<b>即時交付之數位內容</b>，同意於付款完成後立即提供；並知悉本商品<b>不適用七日鑑賞期</b>，購買後不接受退款。</label>
+              <p class="why">依消費者保護法，數位內容經你同意後立即提供者，得不適用七日內解除契約的權利——這個勾選就是那個「同意」。完整條款見<button class="lk" type="button" data-go="policy" data-doc="terms">使用者條款</button>。</p>
+            </div>
+          </div>
+          <p class="co-err" id="coErr"></p>
+          <button class="btn green big" id="coPay" type="button" style="width:100%;margin-top:18px;">前往付款 →</button>
+          <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:14px;">＊<strong>介面示範版</strong>：不會真的扣款，也還沒接上金流服務商。正式版按下去會導轉到金流頁面刷卡／取號。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: 付款結果 ============ -->
+  <div class="view" id="view-payresult">
+    <section class="pad band-cream">
+      <div class="container pr-wrap">
+        <div class="pr-card" id="prCard"></div>
+        <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:16px;text-align:center;">＊<strong>介面示範版</strong>：上面的虛擬帳號／繳費代碼都是隨機產生的假資料，不要真的去繳。</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: 我的訂單 ============ -->
+  <div class="view" id="view-orders">
+    <section class="pad band-cream">
+      <div class="container ord-wrap">
+        <button class="btn" data-back type="button" style="margin-bottom:20px;">← 回上一頁</button>
+        <div class="sec-head" style="margin-bottom:20px;">
+          <span class="kicker">我的訂單</span>
+          <h2>你買過的東西都在這</h2>
+          <p>AI 深度解析、真人老師語音解讀的訂單狀態與錄音交付，都在這一頁。</p>
+        </div>
+        <div id="ordList"></div>
+        <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:18px;">＊<strong>介面示範版</strong>：訂單只存在你這台裝置的瀏覽器裡，換一台就不見了。正式版交易紀錄依法保存 5 年，帳號刪除後仍會保留（見隱私權政策）。</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: 信箱（配對後私訊層）============ -->
+  <div class="view" id="view-inbox">
+    <div class="marquee pink"><span> 雙方都說好才開線 ・ 一次一則、對方回了才能再送 ・ 匿名到底 ・ 想結束隨時可以走 雙方都說好才開線 ・ 慢慢聊、不用秒回 ・ 只看能量不看臉</span></div>
+    <section class="pad band-cream">
+      <div class="container inbox-wrap">
+        <button class="btn" data-go="lounge" type="button" style="margin-bottom:20px;">← 回大廳</button>
+
+        <!-- 清單模式 -->
+        <div id="ibList">
+          <div class="sec-head" style="margin-bottom:16px;">
+            <span class="kicker">巴巴信箱</span>
+            <h2>你的紙條往返</h2>
+            <p>在摩天輪或飛車上按了「想認識」，<strong>對方也說好</strong>，才會在這裡開一條線。慢慢聊，不用秒回。</p>
+</div>
+
+          <div class="me-bar">
+            <span class="me-lab">你在這裡叫</span>
+            <span class="me-name" id="myName">某隻生產者・#A7K2</span>
+            <button class="me-edit" id="myNameEdit" type="button">改暱稱</button>
+            <p class="me-hint">預設是代號＋類型徽章。可以改成你喜歡的暱稱，但<strong>別放真名、IG、性別</strong>——這裡的重點是能量，不是你是誰。</p>
+</div>
+
+          <button class="inv-banner" id="invBanner" type="button" style="display:none;">
+            <span class="ib-emo"><svg class="ban-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 2h2v9h1V4h2v7h1V6h2v9.5a6.5 6.5 0 0 1-6.5 6.5H11a6 6 0 0 1-6-6V9h2v5h1V2z"/></svg></span>
+            <span class="ib-txt" id="invBannerTxt">有人想認識你<small>你也說好，才會開一條線</small></span>
+            <span class="ib-go">→</span>
+</button>
+
+          <div class="ib-tabs" id="ibTabs">
+            <button class="on" data-tab="open" type="button">聊天中<span class="cnt" id="cntOpen">0</span></button>
+            <button data-tab="inv" type="button">邀請<span class="cnt" id="cntInv">0</span></button>
+            <button data-tab="sent" type="button">已送出<span class="cnt" id="cntSent">0</span></button>
+</div>
+          <div class="ib-list" id="ibBody"></div>
+
+          <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:20px;">遇到怪怪的人，對話右上角 <strong>⋯</strong> 可以封鎖或檢舉。</p>
+</div>
+
+        <!-- 對話模式 -->
+        <div id="ibChat" style="display:none;">
+          <div class="chat-shell">
+            <div class="chat">
+              <div class="chat-head">
+                <button class="chat-back" id="chatBack" type="button">←</button>
+                <div class="chat-who"><b id="chatName">—</b><span id="chatType">—</span></div>
+                <button class="chat-menu" id="chatMenu" type="button" aria-label="更多">⋯</button>
+</div>
+              <div class="chat-body" id="chatBody"></div>
+              <div class="chat-foot">
+                <div class="turn-lock" id="turnLock" style="display:none;">⏳ <span>一次一則——等對方回你，才能再送下一則。</span></div>
+                <div class="chat-in" id="chatIn">
+                  <textarea id="chatText" rows="2" maxlength="240" placeholder="寫點什麼…（一次一則，最多 200 字）"></textarea>
+                  <button class="btn chat-send" id="chatSend" type="button">送出</button>
+</div>
+                <div class="chat-count" id="chatCount">0 / 200</div>
+</div>
+</div>
+            <div class="menu-pop" id="menuPop">
+              <button type="button" data-act="end">結束這條線</button>
+              <button type="button" data-act="block">封鎖並結束</button>
+              <button type="button" data-act="report">檢舉這個人</button>
+</div>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 登入 ============ -->
+<div class="view" id="view-auth">
+  <section class="pad band-cream">
+      <div class="container auth-wrap">
+        <div class="auth-card">
+          <div class="acct-ava" style="margin:0 auto 14px;"><svg class="ava-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-3.6 17.2L7 22h10l-1.4-2.8A9 9 0 0 0 12 2zm0 2.4 1.9 3.3h-3.8zm-6.6 6.9 3.3-1.9 1.9 3.3-3.3 1.9a6.6 6.6 0 0 1-1.9-3.3zm5.2 5.2 1.9-3.3 1.9 3.3a6.6 6.6 0 0 1-3.8 0zm7.1-1.9-3.3-1.9 1.9-3.3 3.3 1.9a6.6 6.6 0 0 1-1.9 3.3z"/></svg></div>
+          <h2>進多巴樂園</h2>
+          <p class="sub" id="authReason">登入後才能存你的分析結果、進大廳認識別的巴巴。<br>我們不會拿你的社群帳號發文，也不會抓你的好友名單。</p>
+          <p class="auth-err" id="authErr"></p>
+          <div class="oauth">
+            <button class="g" id="loginGoogle" type="button">
+              <svg class="ic" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.0 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.0 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.1-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.6l6.2 5.2C37.0 39.2 44 34 44 24c0-1.2-.1-2.3-.4-3.5z"/></svg>
+              用 Google 繼續
+            </button>
+            <button class="l" id="loginLine" type="button">
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.4 8.1.3.07.8.22.9.5.09.26.06.66.03.92l-.15.88c-.04.26-.2 1.02.9.56s5.94-3.5 8.1-5.99C21.6 13.5 22 11.9 22 10.2 22 5.7 17.5 2 12 2zM8 13H6.6c-.2 0-.36-.16-.36-.36V8.86c0-.2.16-.36.36-.36s.36.16.36.36v3.42H8c.2 0 .36.16.36.36S8.2 13 8 13zm1.8-.36c0 .2-.16.36-.36.36s-.36-.16-.36-.36V8.86c0-.2.16-.36.36-.36s.36.16.36.36v3.78zm4.5 0c0 .16-.1.3-.25.34a.4.4 0 0 1-.11.02.36.36 0 0 1-.29-.14l-1.95-2.65v2.43c0 .2-.16.36-.36.36s-.36-.16-.36-.36V8.86c0-.16.1-.3.25-.34a.35.35 0 0 1 .4.12l1.95 2.66V8.86c0-.2.16-.36.36-.36s.36.16.36.36v3.78zM17.7 10c.2 0 .36.16.36.36s-.16.36-.36.36h-1.05v.67h1.05c.2 0 .36.16.36.36s-.16.36-.36.36h-1.4a.36.36 0 0 1-.36-.36V8.86c0-.2.16-.36.36-.36h1.4c.2 0 .36.16.36.36s-.16.36-.36.36h-1.05v.67h1.05z"/></svg>
+              用 LINE 繼續
+            </button>
+          </div>
+          <div class="auth-agree">
+            <input type="checkbox" id="agreeChk">
+            <label for="agreeChk">我已滿 18 歲，並且同意
+              <button class="lk" type="button" data-go="policy" data-doc="terms">使用者條款</button>與<button class="lk" type="button" data-go="policy" data-doc="privacy">隱私權政策</button>。</label>
+          </div>
+          <p class="auth-note">＊未滿 18 歲仍可使用免費驗證與知識內容，只是不能進大廳互動區。</p>
+        </div>
+        <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:18px;text-align:center;">＊<strong>介面示範版</strong>：登入按鈕目前是模擬的，實際的 Google／LINE 串接由後端處理。</p>
+    </div>
+  </section>
+</div>
+
+  <!-- ============ VIEW: 首次登入補資料 ============ -->
+  <div class="view" id="view-onboard">
+    <section class="pad band-cream">
+      <div class="container" style="max-width:560px;">
+        <div class="ob-card">
+          <p class="ob-step">最後一步</p>
+          <h2>幫你取個大廳裡的名字</h2>
+          <p class="sub">大廳裡沒有人看得到你的真名和性別，只看得到你的暱稱和類型。不填也可以，我們給你一個代號。</p>
+          <div class="ob-field">
+            <label for="obNick">暱稱<span class="opt-tag">可跳過</span></label>
+            <input id="obNick" type="text" maxlength="20" placeholder="例如：慢慢來的那位" autocomplete="off">
+            <p class="ob-hint">別放真名、IG、性別——這裡的重點是能量，不是你是誰。暱稱是公開的，會先審後顯。</p>
+            <div class="ob-preview" id="obPreview">別人會看到：<b>某隻生產者・#A7K2</b></div>
+</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn green" id="obDone" type="button" style="flex:1;min-width:150px;">好了，進去吧 →</button>
+            <button class="btn" id="obSkip" type="button" style="flex:0 0 auto;">先跳過</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 大廳自我介紹 ============ -->
+  <!-- 三鐵則落在這一頁：①<100 字 ②嚴禁洩漏性別（公開區＝先審後顯，命中直接擋下不讓送）
+       ③只講能量與感受。能量標籤走固定清單不開放自由輸入，從源頭杜絕夾帶個資。 -->
+  <div class="view" id="view-intro">
+    <section class="pad band-cream">
+      <div class="container intro-wrap">
+        <button class="btn" data-back type="button" style="margin-bottom:20px;">← 回上一頁</button>
+        <div class="sec-head" style="margin-bottom:20px;">
+          <span class="kicker">大廳自介</span>
+          <h2>別人在大廳會看到的你</h2>
+          <p>摩天輪、飛車上的巴巴卡就是長這樣。<strong>不看臉、不問性別</strong>——只寫你的能量跟感受，這樣被看見的才是你這個人。</p>
+        </div>
+
+        <div class="intro-card">
+          <h3>1. 挑一個開頭（選填）</h3>
+          <p class="lead">不知道從哪寫起的話，點一個開頭幫你起頭。</p>
+          <div class="qchips" id="introQ">
+            <button type="button" data-q="最近有感的一件事是">最近有感的一件事</button>
+            <button type="button" data-q="我卡住的時候，通常是">我卡住的時候</button>
+            <button type="button" data-q="我希望被理解的是">我希望被理解的</button>
+            <button type="button" data-q="我的能量最順的時候是">我能量最順的時候</button>
+          </div>
+          <div class="field" style="margin-bottom:0;">
+            <label for="introText">你的自我介紹 <span class="req">必填</span></label>
+            <textarea id="introText" rows="4" maxlength="120" placeholder="例：以前硬撐不喜歡的事，現在學會等身體說「要不要」，整個人順很多。"></textarea>
+            <div class="tree-count" id="introCount">0 / 100</div>
+            <p class="hint">100 字以內。<strong>別寫真名、性別、年齡、外貌、IG／LINE／電話</strong>——這些會被退件。</p>
+          </div>
+        </div>
+
+        <div class="intro-card">
+          <h3>2. 挑 1–3 個能量標籤</h3>
+          <p class="lead">選最像你的。這些會顯示在你的卡片上。標籤是固定清單，不能自己打字——這樣才不會不小心夾帶到個資。</p>
+          <div class="tagpool" id="introTags"></div>
+          <p class="tag-count" id="introTagCount">已選 0 / 3</p>
+        </div>
+
+        <div class="intro-card">
+          <h3>3. 確認一下別人看到什麼</h3>
+          <p class="lead">這就是你在摩天輪和飛車上出現的樣子。</p>
+          <div class="pv-box">
+            <p class="pv-lab">預覽</p>
+            <div class="pair-card" id="introPreview"></div>
+          </div>
+          <p class="intro-err" id="introErr"></p>
+          <p class="intro-ok" id="introOk"></p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+            <button class="btn green big" id="introSave" type="button" style="flex:1;min-width:170px;">存起來，上大廳 →</button>
+            <button class="btn" id="introSkip" type="button" style="flex:0 0 auto;">先跳過</button>
+          </div>
+          <p class="disclaimer" style="color:var(--ink);opacity:.7;margin-top:14px;">＊自介是<strong>公開內容</strong>，會先審後顯——送出後要通過審核才會出現在別人的牆上。</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: 會員中心 ============ -->
+  <div class="view" id="view-account">
+    <section class="pad band-cream">
+      <div class="container" style="max-width:760px;">
+        <div class="acct-head">
+          <div class="acct-ava" id="acctAva"><svg class="ava-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9zm0 2c-4.4 0-8 2.4-8 5.3V21h16v-1.7c0-2.9-3.6-5.3-8-5.3z"/></svg></div>
+          <div class="acct-who">
+            <b id="acctName">—</b>
+            <span id="acctProvider">—</span>
+</div>
+          <button class="btn" id="acctLogout" type="button" style="font-size:.88rem;padding:9px 16px;">登出</button>
+</div>
+
+        <div class="acct-grid">
+          <button class="acct-tile" data-go="verify" type="button">
+            <span class="ti"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v18H4zm2.2 3.2v6h3.2v-6zm4.2 0v6h3.2v-6zm4.2 0v6h3.2v-6zM7 16.4h10v2.2H7z"/></svg></span><b>我的巴巴</b><span id="acctChart">還沒驗證過——去拉一把</span>
+</button>
+          <button class="acct-tile" data-go="unlock" type="button">
+            <span class="ti"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8.5 12h9v1.8h-9zm0 3.6h9v1.8h-9z"/></svg></span><b>我的深度解析</b><span id="acctUnlock">尚未解鎖</span>
+</button>
+          <button class="acct-tile" data-go="orders" type="button">
+            <span class="ti"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10l1.6 3H5.4zM4 8.5h16V21H4zm4 3v2h8v-2z"/></svg></span><b>我的訂單</b><span id="acctOrders">還沒有訂單</span>
+</button>
+          <button class="acct-tile" data-go="inbox" type="button">
+            <span class="ti"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zm1.8 1.8 7.2 5.4 7.2-5.4z"/></svg></span><b>我的信箱</b><span id="acctInbox">配對後的私訊都在這</span>
+</button>
+          <button class="acct-tile" data-go="lounge" type="button">
+            <span class="ti"><svg class="tile-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-3.6 17.2L7 22h10l-1.4-2.8A9 9 0 0 0 12 2zm0 2.4 1.9 3.3h-3.8zm-6.6 6.9 3.3-1.9 1.9 3.3-3.3 1.9a6.6 6.6 0 0 1-1.9-3.3zm5.2 5.2 1.9-3.3 1.9 3.3a6.6 6.6 0 0 1-3.8 0zm7.1-1.9-3.3-1.9 1.9-3.3 3.3 1.9a6.6 6.6 0 0 1-1.9 3.3z"/></svg></span><b>多巴樂園大廳</b><span>樹洞、配對、老師市集</span>
+</button>
+</div>
+
+        <div class="acct-sec">
+          <h3>帳號設定</h3>
+          <div class="acct-row">
+            <div><div class="k">大廳暱稱</div><div class="v" id="setNick">—</div></div>
+            <button class="btn" id="setNickBtn" type="button">修改</button>
+</div>
+          <div class="acct-row">
+            <div><div class="k">大廳自介</div><div class="v" id="setIntro">還沒寫</div></div>
+            <button class="btn" data-go="intro" type="button">修改</button>
+</div>
+          <div class="acct-row">
+            <div><div class="k">出生資料</div><div class="v" id="setBirth">還沒填</div></div>
+            <button class="btn" data-go="verify" type="button">去填／修改</button>
+</div>
+          <div class="acct-row">
+            <div><div class="k">LINE 通知</div><div class="v">配對邀請、對方回覆、訂單結果</div></div>
+            <button class="btn" id="setNotify" type="button">未綁定</button>
+</div>
+</div>
+
+        <div class="acct-sec">
+          <h3>封鎖名單</h3>
+          <div id="blockList"><div style="opacity:.5;font-size:.9rem;padding:8px 0;">未登入</div></div>
+</div>
+
+        <div class="acct-sec" id="adminSection" style="display:none;">
+          <h3>管理員</h3>
+          <div class="acct-row">
+            <div><div class="k">審核後台</div><div class="v">紙條・自介・暱稱待審項目</div></div>
+            <button class="btn" data-go="admin" type="button">進入後台</button>
+</div>
+</div>
+
+        <div class="acct-sec" id="teacherSection" style="display:none;">
+          <h3>老師後台</h3>
+          <div class="acct-row">
+            <div><div class="k">老師管理</div><div class="v">接單・上傳錄音・查收益</div></div>
+            <button class="btn" data-go="teacherdash" type="button">進入後台</button>
+          </div>
+        </div>
+
+        <div class="acct-sec">
+          <h3 class="danger">危險區</h3>
+          <div class="acct-row">
+            <div><div class="k">刪除帳號</div><div class="v">刪除後 30 天內清除你的分析、私訊與大廳身份，無法復原</div></div>
+            <button class="btn danger-btn" id="acctDelete" type="button">刪除帳號</button>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 管理員後台 ============ -->
+  <div class="view" id="view-admin">
+    <section class="pad band-cream">
+      <div class="container" style="max-width:760px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <b style="font-size:1.15rem;">管理員後台</b>
+          <button class="btn" data-go="account" type="button" style="font-size:.88rem;padding:8px 16px;">← 返回</button>
+</div>
+        <div class="admin-tabs">
+          <button class="admin-tab on" data-tab="tab-posts" type="button">紙條</button>
+          <button class="admin-tab" data-tab="tab-intros" type="button">自介</button>
+          <button class="admin-tab" data-tab="tab-nicks" type="button">暱稱</button>
+</div>
+        <div id="tab-posts" class="admin-panel">
+          <div id="adminPostsList"><div class="admin-empty">載入中⋯</div></div>
+</div>
+        <div id="tab-intros" class="admin-panel" style="display:none;">
+          <div id="adminIntrosList"><div class="admin-empty">載入中⋯</div></div>
+</div>
+        <div id="tab-nicks" class="admin-panel" style="display:none;">
+          <div id="adminNicksList"><div class="admin-empty">載入中⋯</div></div>
+</div>
+</div>
+</section>
+</div>
+
+  <!-- ============ VIEW: 老師後台 ============ -->
+  <div class="view" id="view-teacher-dash">
+    <section class="pad band-cream">
+      <div class="container" style="max-width:760px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <b style="font-size:1.15rem;">老師後台</b>
+          <button class="btn" data-go="account" type="button" style="font-size:.88rem;padding:8px 16px;">← 返回</button>
+        </div>
+        <div class="admin-tabs" id="tdTabs">
+          <button class="admin-tab on" data-tab="td-orders" type="button">訂單</button>
+          <button class="admin-tab" data-tab="td-earnings" type="button">收益</button>
+          <button class="admin-tab" data-tab="td-profile" type="button">我的資料</button>
+        </div>
+        <div id="td-orders">
+          <div class="ib-tabs" id="tdOrderTabs" style="margin-top:16px;">
+            <button class="on" data-tsub="pending_accept" type="button">待接單<span class="cnt" id="tdCntPend"></span></button>
+            <button data-tsub="accepted" type="button">製作中<span class="cnt" id="tdCntWork"></span></button>
+            <button data-tsub="delivered" type="button">已交付<span class="cnt" id="tdCntDone"></span></button>
+          </div>
+          <div id="tdOrderList" style="margin-top:16px;"><div class="admin-empty">載入中⋯</div></div>
+        </div>
+        <div id="td-earnings" style="display:none;">
+          <div id="tdEarnings"><div class="admin-empty">載入中⋯</div></div>
+        </div>
+        <div id="td-profile" style="display:none;">
+          <div id="tdProfile"><div class="admin-empty">載入中⋯</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ VIEW: 政策三頁 ============ -->
+  <div class="view" id="view-policy">
+    <section class="pad band-cream">
+      <div class="container policy-wrap">
+        <button class="btn" data-go="home" type="button" style="margin-bottom:20px;">← 回首頁</button>
+        <div class="policy-nav" id="policyNav">
+          <button class="on" data-doc="privacy" type="button">隱私權政策</button>
+          <button data-doc="terms" type="button">使用者條款</button>
+          <button data-doc="rules" type="button">社群守則</button>
+</div>
+
+        <!-- ---------- 隱私權政策 ---------- -->
+        <article class="doc on" id="doc-privacy">
+          <h2>隱私權政策</h2>
+          <p class="rev">最後修訂日期：2026 年 8 月 1 日</p>
+
+          <h3>1. 總則</h3>
+          <p>多巴樂園（以下稱「本站」）由<b>創巢數位資訊企業社</b>（以下稱「我們」）營運。我們知道你要用出生時間換一份分析，這件事需要信任，所以這頁會盡量把話講清楚：<b>我們拿了你什麼、拿來做什麼、放多久、你可以怎麼把它要回去。</b></p>
+          <p>使用本站服務前，請先閱讀本政策。本政策適用於本站所有服務，不適用於本站連結到的外部網站。</p>
+
+          <h3>2. 我們蒐集哪些資料</h3>
+          <h4>（1）你主動提供的</h4>
+          <ul>
+            <li><b>出生年月日、出生時間、出生地</b>——計算人類圖與星盤的必要資料，沒有它就算不出結果。</li>
+            <li><b>暱稱、自我介紹</b>——你在大廳裡的公開身份。</li>
+            <li><b>你發表的內容</b>——樹洞紙條、自我介紹、暱稱等公開內容。</li>
+            <li><b>你的私訊內容</b>——你和其他使用者一對一的對話（見第 3 點的重要說明）。</li>
+            <li><b>你在檢舉時提交的資料</b>——包含你主動附上的對話內容。</li>
+            <li><b>付款時提供的資料</b>——由金流服務商處理，<b>本站不會取得也不會保存你的信用卡號</b>。</li>
+</ul>
+          <h4>（2）系統自動記錄的</h4>
+          <ul>
+            <li>你的裝置類型、瀏覽器、IP 位址、造訪時間與瀏覽頁面。</li>
+            <li>Cookie 與類似技術（見第 8 點）。</li>
+</ul>
+          <h4>（3）第三方提供的</h4>
+          <ul>
+            <li>若你使用第三方帳號登入，我們會取得該服務提供的識別碼與你授權的基本資料。</li>
+            <li>金流服務商提供的付款結果（成功／失敗），不含卡號。</li>
+</ul>
+          <div class="callout"><b>我們不蒐集</b>：身分證字號、病歷、健康檢查、犯罪前科、財務狀況等特種或高敏感個人資料。<b>也請你不要在自我介紹、紙條或私訊裡填寫這些。</b></div>
+
+          <h3>3. 關於私訊的重要說明</h3>
+          <p>本站的一對一私訊<b>不採事前審閱</b>：平台不會主動閱讀你和其他使用者的對話，也沒有人工審核佇列。</p>
+          <p>我們只在下列情況會看到特定對話內容：</p>
+          <ul>
+            <li><b>你或對方提出檢舉</b>，並在檢舉時提交該段對話；</li>
+            <li>依法律規定或主管機關、司法機關要求。</li>
+</ul>
+          <p>相對地，<b>公開內容</b>（樹洞紙條、自我介紹、暱稱）因為是給所有人看的，會經過審核後才顯示。</p>
+          <div class="callout warn"> <b>給你的提醒</b>：因為我們不看，也就無法在事情發生前擋下來。請只把聯絡方式、真實姓名、住處等資訊，給你自己確定信任的人。</div>
+
+          <h3>4. 我們拿這些資料做什麼</h3>
+          <ul>
+            <li><b>提供服務</b>：計算你的人類圖與星盤、產生分析內容、顯示你的大廳身份、傳遞你的訊息。</li>
+            <li><b>通知你</b>：配對邀請、對方回覆、訂單與付款結果。</li>
+            <li><b>維護安全</b>：處理檢舉、防止濫用與詐騙、執行社群守則。</li>
+            <li><b>改善服務</b>：以彙總、去識別化的統計了解哪些功能被使用（例如「多少人完成驗證」），此類統計不會識別到個人。</li>
+</ul>
+          <p><b>我們不會做的事：</b></p>
+          <ul>
+            <li>不會把你的出生資料、私訊內容賣給任何人，也不會提供給廣告商。</li>
+            <li>不會用你的私訊內容訓練模型或產生行銷素材。</li>
+            <li>不會在未經你同意下，把你的個人資料用於本政策以外的目的。</li>
+</ul>
+
+          <h3>5. 我們會分享給誰</h3>
+          <p>僅在必要範圍內，提供給協助我們營運的服務商：</p>
+          <ul>
+            <li><b>金流服務商</b>——處理付款。</li>
+            <li><b>雲端／資料庫服務商</b>——存放服務運作所需資料。</li>
+            <li><b>通知服務商</b>——傳送通知。</li>
+</ul>
+          <p>這些服務商僅能在為本站提供服務的目的內處理資料。除此之外，我們只在<b>依法律規定或司法機關要求</b>時提供。</p>
+          <div class="callout">本站目前尚未開放帳號與付費功能。相關服務上線時，我們會在本頁<b>具名列出</b>實際使用的服務商。</div>
+
+          <h3>6. 我們怎麼保護你的資料</h3>
+          <ul>
+            <li>全站以 HTTPS 加密傳輸。</li>
+            <li>資料庫存取採權限控管，僅必要人員可存取。</li>
+            <li>付款由金流服務商處理，本站不接觸、不保存卡號。</li>
+</ul>
+          <p>我們會盡合理努力保護資料，但<b>沒有任何網路傳輸或儲存方式是百分之百安全的</b>，無法保證絕對無虞。</p>
+
+          <h3>7. 保存多久</h3>
+          <ul>
+            <li><b>帳號與分析資料</b>：保存至你刪除帳號為止，刪除後 <b>30 天</b>內完成清除。</li>
+            <li><b>私訊內容</b>：保存至該對話任一方結束、或你刪除帳號為止，之後 <b>30 天</b>內清除。</li>
+            <li><b>交易紀錄</b>：依稅務與會計法令規定保存 <b>5 年</b>。</li>
+            <li><b>檢舉紀錄</b>：保存 <b>2 年</b>，供處理爭議與累犯判斷。</li>
+</ul>
+
+          <h3>8. Cookie</h3>
+          <p>本站使用 Cookie 及瀏覽器本機儲存，用於保持登入狀態、記住你的偏好與功能狀態（例如每日配對是否已使用）。你可以在瀏覽器設定中拒絕或刪除 Cookie，但部分功能可能無法正常運作。</p>
+
+          <h3>9. 你的權利</h3>
+          <p>依個人資料保護法，你可以隨時要求：<b>查詢或閱覽、製給複製本、補充或更正、停止蒐集處理利用、刪除</b>你的個人資料。</p>
+          <p>行使方式：來信 <b>chiehhh1998@gmail.com</b>。依個人資料保護法規定，我們的處理期限為：</p>
+          <ul>
+            <li><b>查詢、閱覽、製給複製本</b>：收到請求後 <b>15 日</b>內回覆是否同意；必要時得延長 <b>15 日</b>，並以書面告知你延長的理由。</li>
+            <li><b>補充或更正、停止蒐集處理利用、刪除</b>：收到請求後 <b>30 日</b>內回覆是否同意；必要時得延長 <b>30 日</b>，並以書面告知你延長的理由。</li>
+</ul>
+          <p>為保護你的權益，我們可能需要先確認你的身分。你也可以直接在網站上修改暱稱與自我介紹，或刪除你發表的內容。</p>
+
+          <h3>10. 未成年</h3>
+          <p>本站的<b>分析與知識內容全年齡開放</b>；<b>大廳互動功能（樹洞、配對、私訊）限 18 歲以上使用</b>。若你未滿 18 歲，請勿使用互動功能。</p>
+
+          <h3>11. 政策變更</h3>
+          <p>本政策修改時會更新本頁的「最後修訂日期」；若有重大變更，我們會在網站上公告或通知你。</p>
+
+          <div class="sig"><b>創巢數位資訊企業社</b><br>客服信箱：chiehhh1998@gmail.com</div>
+</article>
+
+        <!-- ---------- 使用者條款 ---------- -->
+        <article class="doc" id="doc-terms">
+          <h2>使用者條款</h2>
+          <p class="rev">最後修訂日期：2026 年 8 月 1 日</p>
+
+          <h3>1. 你同意了什麼</h3>
+          <p>當你使用多巴樂園，就表示你同意本條款。如果你不同意，請不要使用本站服務。</p>
+
+          <h3>2. 本站提供什麼</h3>
+          <ul>
+            <li><b>巴巴驗證機</b>：免費計算你的人類圖類型與策略。</li>
+            <li><b>AI 深度分析</b>：付費 99 元，由系統依你的出生資料自動產生的文字分析。</li>
+            <li><b>真人老師市集</b>：媒合命理老師提供付費解讀，以錄音方式交付。</li>
+            <li><b>多巴樂園大廳</b>：樹洞紙條牆、配對瀏覽、隨機配對、配對後私訊等互動功能。</li>
+</ul>
+
+          <h3>3. 帳號與年齡</h3>
+          <ul>
+            <li>使用互動功能需年滿 <b>18 歲</b>。</li>
+            <li>你必須對自己帳號下的所有行為負責，請不要把帳號借給別人。</li>
+            <li>你提供的出生資料應為真實；填錯會直接導致分析結果錯誤，這部分我們無法負責。</li>
+</ul>
+
+          <h3>4. 付費與退款</h3>
+          <ul>
+            <li>AI 深度分析為 <b>99 元、單次購買、付款後即時交付</b>的數位商品。</li>
+            <li>本商品於付款後<b>即時產生並提供</b>，依《通訊交易解除權合理例外情事適用準則》屬於<b>不適用七日猶豫期（鑑賞期）</b>之數位內容。你在結帳時會被要求確認此事項，<b>確認並完成付款後，恕不退款</b>。</li>
+            <li><b>若因系統問題導致你未能取得分析結果</b>，這屬於未交付而非退款：請來信 chiehhh1998@gmail.com，我們會為你補發；補發仍失敗時全額退還。</li>
+            <li>真人老師的解讀由老師定價，付款、交付與退款另依該老師與本站公告之規則。</li>
+</ul>
+
+          <h3>5. 真人老師市集</h3>
+          <ul>
+            <li>老師須經本站審核後始得上架，本站對其命理內容的正確性進行基本把關，但<b>解讀內容為老師個人專業意見</b>。</li>
+            <li>平台就每筆交易收取媒合與金流服務費用，實際比例將於老師招募說明與上架時公告。</li>
+            <li>老師與使用者間的交付爭議，本站將協助處理。</li>
+</ul>
+
+          <h3>6. 你發表的內容</h3>
+          <ul>
+            <li>你保有你發表內容的權利；同時你授權本站在提供服務所必要的範圍內，儲存、顯示與傳送這些內容。</li>
+            <li>你保證你發表的內容不侵害他人權利、不違反法令。</li>
+</ul>
+
+          <h3>7. 私訊：我們不主動審閱</h3>
+          <ul>
+            <li>本站<b>不會事前審閱使用者間的一對一私訊</b>，也不會主動閱讀對話內容。</li>
+            <li>我們僅在<b>收到檢舉並取得檢舉人提交之對話內容</b>時，或<b>依法律規定</b>時，才會檢視特定對話。</li>
+            <li>因此，<b>本站無法保證私訊內容的適當性</b>。若你在私訊中遭遇不當對待，請使用封鎖與檢舉功能，我們會依社群守則處理。</li>
+            <li>你在私訊中自行提供聯絡方式、真實身分或其他個人資料，或與他人在站外聯繫，<b>風險由你自行承擔</b>，本站無從介入。</li>
+</ul>
+
+          <h3>8. 禁止行為</h3>
+          <p>使用本站時，請不要：</p>
+          <ul>
+            <li>騷擾、辱罵、威脅或跟蹤他人；</li>
+            <li>散布色情、暴力或違法內容；</li>
+            <li>對他人進行詐騙、假借身分、要求金錢或投資；</li>
+            <li>未經同意公開他人的個人資料或對話內容；</li>
+            <li>以自動化程式大量存取、干擾或破壞本站運作。</li>
+</ul>
+          <p>違反者，本站得依社群守則限制功能、停權或終止帳號。</p>
+
+          <h3>9. 命理內容的性質</h3>
+          <div class="callout warn">本站提供的人類圖與星盤分析，<b>是自我理解的參考工具，不是醫療、心理治療、法律、投資或任何專業建議</b>。請不要用它取代專業協助。因你依分析內容所做的決定，本站不負責任。</div>
+
+          <h3>10. 服務中斷與變更</h3>
+          <p>本站可能因維護、升級或不可抗力而暫停或變更服務。我們會盡量事先公告，但緊急情況下可能無法預告。</p>
+
+          <h3>11. 條款修改</h3>
+          <p>本條款修改時會更新「最後修訂日期」並於網站公告。若你在修改後繼續使用服務，視為同意修改後的條款。</p>
+
+          <h3>12. 準據法與管轄</h3>
+          <p>本條款以<b>中華民國法律</b>為準據法。因本條款發生爭議時，以<b>台灣桃園地方法院</b>為第一審管轄法院。</p>
+
+          <div class="sig"><b>創巢數位資訊企業社</b><br>客服信箱：chiehhh1998@gmail.com</div>
+</article>
+
+        <!-- ---------- 社群守則 ---------- -->
+        <article class="doc" id="doc-rules">
+          <h2>社群守則</h2>
+          <p class="rev">最後修訂日期：2026 年 8 月 1 日</p>
+          <p>多巴樂園的大廳，是設計來讓人<b>練習表達自己、認識不同能量的人</b>的地方——不是約會場，也不是外貌市場。下面這些規則，都是為了讓它維持成那個樣子。</p>
+
+          <h3>1. 三個核心原則</h3>
+          <h4>① 我們聊能量，不聊誰配誰</h4>
+          <p>配對講的是「你們的能量怎麼互動、容易在哪卡」，不是「你們天生一對」。真正的合盤要看通道與閘門的電磁橋接，不是類型對類型——所以我們不做這種斷言。</p>
+          <h4>② 自我介紹不透露性別</h4>
+          <p>這是本站最重要的設計。藏起性別，是為了把注意力拉回「這個人在想什麼」。<b>自我介紹限 100 字以內，且不得透露性別。</b></p>
+          <h4>③ 一次一則，慢慢來</h4>
+          <p>配對成功後的私訊採<b>輪流制</b>：你送出一則後，要等對方回覆才能再送。不是限制，是節奏——這裡本來就不是拿來秒回的地方。</p>
+
+          <h3>2. 公開內容：先審後顯</h3>
+          <p>樹洞紙條、自我介紹、暱稱屬於公開內容，<b>送出後會先經過審核，通過才會顯示</b>。以下內容不會通過：</p>
+          <ul>
+            <li>透露性別的字詞；</li>
+            <li>聯絡方式（IG、LINE、電話、Email 等）；</li>
+            <li>辱罵、歧視、人身攻擊；</li>
+            <li>色情、暴力、違法內容；</li>
+            <li>廣告、招攬、拉人加群組；</li>
+            <li>他人的個人資料。</li>
+</ul>
+          <p>被退件時我們會告訴你原因，你可以修改後再送。</p>
+
+          <h3>3. 私訊：我們不看，但你有工具</h3>
+          <p><b>平台不會主動閱讀你們的對話</b>，也沒有事前審核。</p>
+          <p>換句話說，這裡沒有人在旁邊幫你把關——所以我們把工具交給你：</p>
+          <ul>
+            <li><b>封鎖</b>：對話右上角 ⋯ →「封鎖並結束」。對方不會收到通知，你們也不會再配到彼此。</li>
+            <li><b>結束這條線</b>：不想聊了隨時可以走，不需要理由，對方不會收到通知。</li>
+            <li><b>檢舉</b>：對話右上角 ⋯ →「檢舉這個人」。檢舉時<b>由你提交那段對話</b>，我們只會看你交出來的部分。</li>
+</ul>
+
+          <h3>4. 關於交換聯絡方式</h3>
+          <p><b>我們不提供交換聯絡方式的功能，也不會阻止你自己給。</b></p>
+          <p>當系統偵測到你正要送出像是聯絡方式的內容時（這個判斷在你自己的裝置上進行，訊息不會因此被上傳給任何人），會跳出提醒；你按確定，訊息就照樣送出。</p>
+          <div class="callout">我們的建議很簡單：<b>離開站內，我們的封鎖與檢舉就保護不到你了。</b> 給不給，是你的決定。</div>
+
+          <h3>5. 違規怎麼處理</h3>
+          <p>經檢舉查證屬實者：</p>
+          <table>
+            <tr><th>情節</th><th>處理</th></tr>
+            <tr><td>初次、情節輕微</td><td>提醒並移除違規內容</td></tr>
+            <tr><td>再次違規</td><td><b>暫停互動功能 7 天</b></td></tr>
+            <tr><td>第三次</td><td><b>暫停互動功能 14 天</b></td></tr>
+            <tr><td>情節重大（性騷擾、詐騙、散布他人私密內容、假冒身分）</td><td><b>永久停權</b>，必要時移送司法機關</td></tr>
+</table>
+          <p>「情節重大」不需要累犯，第一次就會直接處理。</p>
+
+          <h3>6. 未成年</h3>
+          <p>大廳互動功能限 <b>18 歲以上</b>。分析與知識內容全年齡開放。若發現未滿 18 歲使用互動功能，我們會停用該功能。</p>
+
+          <h3>7. 有問題找我們</h3>
+          <p>客服信箱：<b>chiehhh1998@gmail.com</b></p>
+
+          <div class="sig"><b>創巢數位資訊企業社</b></div>
+</article>
+</div>
+</section>
+</div>
+
+  <!-- 個資警語（本地偵測命中才跳；判斷跑在你自己的瀏覽器裡，訊息不會上傳給任何人看）-->
+  <div class="modal-mask" id="privacyMask">
+    <div class="modal">
+      <div class="mi"><svg class="modal-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v7c0 5 3.4 9.3 8 10 4.6-.7 8-5 8-10V5zm-1 5h2v6h-2zm0 8h2v2h-2z"/></svg></div>
+      <p>為了留給大家更好的交心體驗，本樂園建議保護好自己的個資，才不會被有心人士利用，你確定要送出嗎？</p>
+      <div class="mact">
+        <button class="btn ghost" id="pvCancel" type="button">再想一下</button>
+        <button class="btn pink" id="pvOk" type="button">確定送出</button>
+</div>
+</div>
+</div>
+
+  <!-- ============ 全站頁尾（每頁都顯示） ============ -->
+  <footer id="cta">
+    <div class="container">
+      <div class="sec-head" style="margin-bottom:14px;">
+        <span class="kicker" style="background:var(--yellow);color:var(--ink);">FOLLOW</span>
+        <h2>還想被說中更多？</h2>
+        <p style="color:#e9e1cd;">星盤、人類圖、還有一堆抽象，這裡都有。</p>
+</div>
+      <a href="https://www.threads.com/@chieh.o_06" class="btn big" target="_blank" rel="noopener">追蹤 @chieh.o_06</a>
+      <div class="foot-links">
+        <button data-go="policy" data-doc="privacy" type="button">隱私權政策</button>
+        <button data-go="policy" data-doc="terms" type="button">使用者條款</button>
+        <button data-go="policy" data-doc="rules" type="button">社群守則</button>
+</div>
+      <p class="mono">© 2026 多巴樂園｜創巢數位資訊企業社</p>
+</div>
+</footer>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- 計算核心：inject.py 會把 astronomy + hd-engine 內嵌進下面兩個 script -->
+<script src="js/astronomy.browser.min.js"></script>
+<script src="js/hd-engine.js"></script>
+<script src="js/hd-content.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

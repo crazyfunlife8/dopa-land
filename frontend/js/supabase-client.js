@@ -1,0 +1,4 @@
+window.DopaSupabase = window.supabase.createClient(
+  'https://tylikhvklfxctqnjpbqf.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5bGlraHZrbGZ4Y3RxbmpwYnFmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MDA4MjQsImV4cCI6MjEwMjE3NjgyNH0.MfqGjh4nKdOMN40tpqwxParNprzKg9eFZx1AHUfTh0I'
+);
