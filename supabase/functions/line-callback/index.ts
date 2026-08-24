@@ -4,7 +4,7 @@ const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 const LINE_CLIENT_ID = Deno.env.get('LINE_CLIENT_ID')!
 const LINE_CLIENT_SECRET = Deno.env.get('LINE_CLIENT_SECRET')!
-const SITE_URL = Deno.env.get('SITE_URL')!
+const SITE_URL = 'https://d08721e3.dopa-land.pages.dev'
 
 const admin = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
   auth: { autoRefreshToken: false, persistSession: false },
