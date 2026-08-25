@@ -2322,23 +2322,23 @@
     function loadApplications(){
       var el=document.getElementById("adminApplicationsList"); if(!el) return;
       el.innerHTML='<div class="admin-empty">載入中⋯</div>';
-      window.DopaSupabase.from("teacher_applications").select("id,name,contact,specialty,bio,status,created_at").order("created_at").then(function(res){
+      window.DopaSupabase.from("teacher_applications").select("id,name,contact,specialty,bio,status,created_at").eq("status","pending").order("created_at").then(function(res){
         if(res.error){ el.innerHTML='<div class="admin-empty">讀取失敗</div>'; return; }
         var rows=res.data||[];
-        if(!rows.length){ el.innerHTML='<div class="admin-empty">目前沒有老師申請</div>'; return; }
+        if(!rows.length){ el.innerHTML='<div class="admin-empty">沒有待審老師申請 ✓</div>'; return; }
         el.innerHTML="";
         rows.forEach(function(a){
-          var d=document.createElement("div");
-          d.className="admin-card";
-          d.innerHTML=
-            '<div class="admin-card-body">'+
-              '<div style="font-weight:600;margin-bottom:4px;">'+esc(a.name)+'</div>'+
-              '<div style="font-size:.88rem;opacity:.7;margin-bottom:4px;">聯絡：'+esc(a.contact)+'</div>'+
-              (a.specialty?'<div style="font-size:.88rem;opacity:.7;margin-bottom:4px;">專長：'+esc(a.specialty)+'</div>':'')+
-              (a.bio?'<div style="font-size:.88rem;margin-top:6px;">'+esc(a.bio)+'</div>':'')+
-            '</div>'+
-            '<div class="admin-card-meta">申請時間：'+(a.created_at||"").slice(0,16).replace("T"," ")+'　狀態：'+esc(a.status||"pending")+'</div>';
-          el.appendChild(d);
+          var card=renderCard(
+            a.name+(a.contact?"\n聯絡："+a.contact:"")+(a.specialty?"\n專長："+a.specialty:"")+(a.bio?"\n"+a.bio:""),
+            "申請時間："+(a.created_at||"").slice(0,16).replace("T"," "),
+            function(c){
+              window.DopaSupabase.from("teacher_applications").update({status:"approved"}).eq("id",a.id).select("id").then(function(r){ if(!r.error&&r.data&&r.data.length) c.remove(); else{ console.error("approve app failed",r.error); toast("核准失敗，請確認 RLS 設定"); } });
+            },
+            function(c,reason){
+              window.DopaSupabase.from("teacher_applications").update({status:"rejected",reject_reason:reason||null}).eq("id",a.id).select("id").then(function(r){ if(!r.error&&r.data&&r.data.length) c.remove(); else{ console.error("reject app failed",r.error); toast("駁回失敗，請確認 RLS 設定"); } });
+            }
+          );
+          el.appendChild(card);
         });
       });
     }
