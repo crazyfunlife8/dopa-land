@@ -1400,16 +1400,13 @@
           user_id:auth.user().id, name:name, contact:contact, specialty:specialty, bio:bio
         }).then(function(r){
           if(r.error&&(r.error.code==='23505'||r.status===409)){
-            msg.textContent='你已經送出過申請了，我們會盡快聯繫你！'; msg.style.cssText='display:block;padding:10px;border-radius:8px;margin-bottom:12px;font-size:.88rem;background:#FFC01E;color:#231a10;';
-            btn.disabled=false; btn.textContent='送出申請'; return;
+            modal.remove(); toast('你已經送出過申請了，我們會盡快聯繫你！'); checkTeacherStatus(); return;
           }
           if(r.error){
             msg.textContent='出了點狀況，請再試一次'; msg.style.cssText='display:block;padding:10px;border-radius:8px;margin-bottom:12px;font-size:.88rem;background:#FF4B2B;color:#fff;';
             btn.disabled=false; btn.textContent='送出申請'; return;
           }
-          msg.textContent='申請已收到！3 個工作天內會收到回信  感謝你！'; msg.style.cssText='display:block;padding:10px;border-radius:8px;margin-bottom:12px;font-size:.88rem;background:#1FC98A;color:#fff;';
-          btn.textContent='已送出';
-          setTimeout(function(){ modal.remove(); },3000);
+          modal.remove(); toast('申請已收到！3 個工作天內會收到回信，感謝你！'); checkTeacherStatus();
         });
       });
     });
