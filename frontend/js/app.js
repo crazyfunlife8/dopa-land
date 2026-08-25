@@ -89,8 +89,16 @@
     var recruit=document.querySelector(".recruit");
     if(!recruit||!loggedIn()||!window.DopaSupabase||!window.DopaAuth||!window.DopaAuth.user) return;
     var uid=window.DopaAuth.user().id;
+    var btn=recruit.querySelector("#teacherJoin");
     window.DopaSupabase.from("teachers").select("id").eq("id",uid).maybeSingle().then(function(r){
-      if(r.data) recruit.innerHTML='<p style="font-weight:700;color:var(--green);margin:0;">✓ 你已是多巴樂園老師，可從會員中心進入後台管理。</p>';
+      if(r.data){
+        recruit.innerHTML='<p style="font-weight:700;color:var(--green);margin:0;">✓ 你已是多巴樂園老師，可從會員中心進入後台管理。</p>';
+        return;
+      }
+      window.DopaSupabase.from("teacher_applications").select("status").eq("user_id",uid).maybeSingle().then(function(ar){
+        if(!ar.data||ar.data.status==="rejected") return;
+        if(btn){ btn.disabled=true; btn.textContent="審核中…"; btn.style.opacity=".5"; btn.style.cursor="default"; }
+      });
     });
   }
 
@@ -213,6 +221,7 @@
               if(pv) pv.innerHTML="別人會看到：<b>"+displayName()+"</b>";
             } else {
               paintAccount();
+              checkTeacherStatus();
               var back=pendingGo; pendingGo=null;
               go(back||"account");
             }
