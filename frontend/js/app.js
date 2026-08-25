@@ -71,6 +71,7 @@
     if(name==="dm" && window.DopaDM) window.DopaDM.refresh();
     if(name==="admin" && window.DopaAdmin) window.DopaAdmin.refresh();
     if(name==="teacherdash" && window.DopaTeacher) window.DopaTeacher.refresh();
+    if(name==="teacup") checkTeacherStatus();
     // 設施動畫惰性掛載：只在大廳掛 src、一支一支錯開掛（4 支同時解碼會把沙盒 renderer 打掛）；離開就卸
     var rides=document.querySelectorAll(".ride-anim");
     if(name==="lounge"){
@@ -84,6 +85,15 @@
       [].forEach.call(rides,function(im){ if(im.src) im.removeAttribute("src"); });
     }
   }
+  function checkTeacherStatus(){
+    var recruit=document.querySelector(".recruit");
+    if(!recruit||!loggedIn()||!window.DopaSupabase||!window.DopaAuth||!window.DopaAuth.user) return;
+    var uid=window.DopaAuth.user().id;
+    window.DopaSupabase.from("teachers").select("id").eq("id",uid).maybeSingle().then(function(r){
+      if(r.data) recruit.innerHTML='<p style="font-weight:700;color:var(--green);margin:0;">✓ 你已是多巴樂園老師，可從會員中心進入後台管理。</p>';
+    });
+  }
+
   // ---- 會員：登入／補資料／會員中心（前端空殼・OAuth 由後端串）----
   // 後端交接規格見 `多巴樂園_會員系統_交接規格_v1.md`：
   // 這裡所有 TODO(後端) 標記的地方，都是前端等後端給 API 的接點。
@@ -2322,7 +2332,7 @@
     function loadApplications(){
       var el=document.getElementById("adminApplicationsList"); if(!el) return;
       el.innerHTML='<div class="admin-empty">載入中⋯</div>';
-      window.DopaSupabase.from("teacher_applications").select("id,name,contact,specialty,bio,status,created_at").eq("status","pending").order("created_at").then(function(res){
+      window.DopaSupabase.from("teacher_applications").select("id,user_id,name,contact,specialty,bio,status,created_at").eq("status","pending").order("created_at").then(function(res){
         if(res.error){ el.innerHTML='<div class="admin-empty">讀取失敗</div>'; return; }
         var rows=res.data||[];
         if(!rows.length){ el.innerHTML='<div class="admin-empty">沒有待審老師申請 ✓</div>'; return; }
@@ -2332,7 +2342,15 @@
             a.name+(a.contact?"\n聯絡："+a.contact:"")+(a.specialty?"\n專長："+a.specialty:"")+(a.bio?"\n"+a.bio:""),
             "申請時間："+(a.created_at||"").slice(0,16).replace("T"," "),
             function(c){
-              window.DopaSupabase.from("teacher_applications").update({status:"approved"}).eq("id",a.id).select("id").then(function(r){ if(!r.error&&r.data&&r.data.length) c.remove(); else{ console.error("approve app failed",r.error); toast("核准失敗，請確認 RLS 設定"); } });
+              window.DopaSupabase.from("teacher_applications").update({status:"approved"}).eq("id",a.id).select("id").then(function(r){
+                if(!r.error&&r.data&&r.data.length){
+                  var tags=(a.specialty||"").split(",").map(function(t){return t.trim();}).filter(Boolean);
+                  window.DopaSupabase.from("teachers").insert({id:a.user_id,display_name:a.name,tags:tags,bio:a.bio||"",is_active:true}).then(function(tr){
+                    if(tr.error&&tr.error.code!=="23505"){ toast("申請已核准，但建立老師帳號失敗："+tr.error.message); }
+                    else{ c.remove(); toast("已核准並建立老師帳號 ✓"); }
+                  });
+                } else{ console.error("approve app failed",r.error); toast("核准失敗，請確認 RLS 設定"); }
+              });
             },
             function(c,reason){
               window.DopaSupabase.from("teacher_applications").update({status:"rejected",reject_reason:reason||null}).eq("id",a.id).select("id").then(function(r){ if(!r.error&&r.data&&r.data.length) c.remove(); else{ console.error("reject app failed",r.error); toast("駁回失敗，請確認 RLS 設定"); } });
