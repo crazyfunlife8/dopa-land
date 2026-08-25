@@ -1365,8 +1365,8 @@
         +'<button id="tjClose" class="btn" type="button">取消</button>'
         +'</div></div>';
       document.body.appendChild(modal);
-      document.getElementById('tjClose').addEventListener('click',function(){ modal.style.display='none'; });
-      modal.addEventListener('click',function(e){ if(e.target===modal) modal.style.display='none'; });
+      document.getElementById('tjClose').addEventListener('click',function(){ modal.remove(); });
+      modal.addEventListener('click',function(e){ if(e.target===modal) modal.remove(); });
       document.getElementById('tjSubmit').addEventListener('click',function(){
         var name=(document.getElementById('tjName').value||'').trim();
         var contact=(document.getElementById('tjContact').value||'').trim();
@@ -1390,7 +1390,7 @@
           }
           msg.textContent='申請已收到！3 個工作天內會收到回信  感謝你！'; msg.style.cssText='display:block;padding:10px;border-radius:8px;margin-bottom:12px;font-size:.88rem;background:#1FC98A;color:#fff;';
           btn.textContent='已送出';
-          setTimeout(function(){ modal.style.display='none'; },3000);
+          setTimeout(function(){ modal.remove(); },3000);
         });
       });
     });
@@ -2209,6 +2209,7 @@
       if(tab==="tab-posts") loadPosts();
       else if(tab==="tab-intros") loadIntros();
       else if(tab==="tab-nicks") loadNicks();
+      else if(tab==="tab-applications") loadApplications();
     }
 
     var adminView=document.getElementById("view-admin");
@@ -2261,10 +2262,10 @@
             p.body,
             "貼出："+(p.created_at||"").slice(0,16).replace("T"," "),
             function(card){
-              window.DopaSupabase.from("lounge_posts").update(Object.assign({status:"approved"},reviewedMeta())).eq("id",p.id).then(function(r){ if(!r.error) card.remove(); });
+              window.DopaSupabase.from("lounge_posts").update(Object.assign({status:"approved"},reviewedMeta())).eq("id",p.id).select("id").then(function(r){ if(!r.error&&r.data&&r.data.length) card.remove(); else{ console.error("approve failed",r.error,r.data); toast("核准失敗，請確認管理員 RLS 設定"); } });
             },
             function(card, reason){
-              window.DopaSupabase.from("lounge_posts").update(Object.assign({status:"rejected",reject_reason:reason||null},reviewedMeta())).eq("id",p.id).then(function(r){ if(!r.error) card.remove(); });
+              window.DopaSupabase.from("lounge_posts").update(Object.assign({status:"rejected",reject_reason:reason||null},reviewedMeta())).eq("id",p.id).select("id").then(function(r){ if(!r.error&&r.data&&r.data.length) card.remove(); else{ console.error("reject failed",r.error,r.data); toast("駁回失敗，請確認管理員 RLS 設定"); } });
             }
           ));
         });
@@ -2285,10 +2286,10 @@
             p.intro+(tags?"\n\n能量標籤："+tags:""),
             "更新："+(p.updated_at||"").slice(0,16).replace("T"," "),
             function(card){
-              window.DopaSupabase.from("profiles").update(Object.assign({intro_status:"approved"},reviewedMeta())).eq("user_id",p.user_id).then(function(r){ if(!r.error) card.remove(); });
+              window.DopaSupabase.from("profiles").update(Object.assign({intro_status:"approved"},reviewedMeta())).eq("user_id",p.user_id).select("user_id").then(function(r){ if(!r.error&&r.data&&r.data.length) card.remove(); else{ console.error("approve intro failed",r.error,r.data); toast("核准失敗，請確認管理員 RLS 設定"); } });
             },
             function(card, reason){
-              window.DopaSupabase.from("profiles").update(Object.assign({intro_status:"rejected",reject_reason:reason||null},reviewedMeta())).eq("user_id",p.user_id).then(function(r){ if(!r.error) card.remove(); });
+              window.DopaSupabase.from("profiles").update(Object.assign({intro_status:"rejected",reject_reason:reason||null},reviewedMeta())).eq("user_id",p.user_id).select("user_id").then(function(r){ if(!r.error&&r.data&&r.data.length) card.remove(); else{ console.error("reject intro failed",r.error,r.data); toast("駁回失敗，請確認管理員 RLS 設定"); } });
             }
           ));
         });
@@ -2308,12 +2309,36 @@
             "暱稱："+u.nick,
             "更新："+(u.updated_at||"").slice(0,16).replace("T"," "),
             function(card){
-              window.DopaSupabase.from("users").update({nick_status:"approved"}).eq("id",u.id).then(function(r){ if(!r.error) card.remove(); });
+              window.DopaSupabase.from("users").update({nick_status:"approved"}).eq("id",u.id).select("id").then(function(r){ if(!r.error&&r.data&&r.data.length) card.remove(); else{ console.error("approve nick failed",r.error,r.data); toast("核准失敗，請確認管理員 RLS 設定"); } });
             },
             function(card){
-              window.DopaSupabase.from("users").update({nick_status:"rejected",nick:null}).eq("id",u.id).then(function(r){ if(!r.error) card.remove(); });
+              window.DopaSupabase.from("users").update({nick_status:"rejected",nick:null}).eq("id",u.id).select("id").then(function(r){ if(!r.error&&r.data&&r.data.length) card.remove(); else{ console.error("reject nick failed",r.error,r.data); toast("駁回失敗，請確認管理員 RLS 設定"); } });
             }
           ));
+        });
+      });
+    }
+
+    function loadApplications(){
+      var el=document.getElementById("adminApplicationsList"); if(!el) return;
+      el.innerHTML='<div class="admin-empty">載入中⋯</div>';
+      window.DopaSupabase.from("teacher_applications").select("id,name,contact,specialty,bio,status,created_at").order("created_at").then(function(res){
+        if(res.error){ el.innerHTML='<div class="admin-empty">讀取失敗</div>'; return; }
+        var rows=res.data||[];
+        if(!rows.length){ el.innerHTML='<div class="admin-empty">目前沒有老師申請</div>'; return; }
+        el.innerHTML="";
+        rows.forEach(function(a){
+          var d=document.createElement("div");
+          d.className="admin-card";
+          d.innerHTML=
+            '<div class="admin-card-body">'+
+              '<div style="font-weight:600;margin-bottom:4px;">'+esc(a.name)+'</div>'+
+              '<div style="font-size:.88rem;opacity:.7;margin-bottom:4px;">聯絡：'+esc(a.contact)+'</div>'+
+              (a.specialty?'<div style="font-size:.88rem;opacity:.7;margin-bottom:4px;">專長：'+esc(a.specialty)+'</div>':'')+
+              (a.bio?'<div style="font-size:.88rem;margin-top:6px;">'+esc(a.bio)+'</div>':'')+
+            '</div>'+
+            '<div class="admin-card-meta">申請時間：'+(a.created_at||"").slice(0,16).replace("T"," ")+'　狀態：'+esc(a.status||"pending")+'</div>';
+          el.appendChild(d);
         });
       });
     }

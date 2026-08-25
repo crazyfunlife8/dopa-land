@@ -4,7 +4,7 @@ const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 const LINE_CLIENT_ID = Deno.env.get('LINE_CLIENT_ID')!
 const LINE_CLIENT_SECRET = Deno.env.get('LINE_CLIENT_SECRET')!
-const SITE_URL = 'https://d08721e3.dopa-land.pages.dev'
+const SITE_URL = Deno.env.get('SITE_URL')!
 
 const admin = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
   auth: { autoRefreshToken: false, persistSession: false },
@@ -13,7 +13,7 @@ const admin = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
 Deno.serve(async (req: Request) => {
   const url = new URL(req.url)
   const code = url.searchParams.get('code')
-  const errorRedirect = `${SITE_URL}/frontend/index.html#error=line_auth_failed`
+  const errorRedirect = `${SITE_URL}/#error=line_auth_failed`
 
   if (!code) return Response.redirect(errorRedirect, 302)
 
@@ -74,7 +74,7 @@ Deno.serve(async (req: Request) => {
     const { data: linkData, error: linkError } = await admin.auth.admin.generateLink({
       type: 'magiclink',
       email: placeholderEmail,
-      options: { redirectTo: `${SITE_URL}/frontend/index.html` },
+      options: { redirectTo: `${SITE_URL}/` },
     })
     if (linkError || !linkData?.properties?.action_link) {
       console.error('Generate link failed:', linkError)
