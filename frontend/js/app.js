@@ -223,7 +223,8 @@
               paintAccount();
               checkTeacherStatus();
               var back=pendingGo; pendingGo=null;
-              go(back||"account");
+              var onAuthPage=document.getElementById("view-auth").classList.contains("active");
+              if(back||onAuthPage) go(back||"account");
             }
           });
       } else if(event==="SIGNED_OUT"){
